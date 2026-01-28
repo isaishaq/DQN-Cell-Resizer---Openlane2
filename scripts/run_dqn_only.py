@@ -15,14 +15,14 @@ from openlane.config import Variable
 from openlane.config import Config, universal_flow_config_variables
 from openlane.steps import OpenROAD
 
-additional_config_dict = {
-    "DQN_MODEL_PATH=/home/isaishaq/openlane2/designs/picorv_test/models/dqn_model.pth",
-    "DQN_MAX_ITERATIONS=50",
-    "DQN_TARGET_SLACK=0.0",
-    "DQN_POWER_WEIGHT=0.3",
-    "DQN_TRAINING_MODE=True",
-    "RSZ_DONT_TOUCH_RX=False",
-}
+# additional_config_dict = {
+#     "DQN_MODEL_PATH=/home/isaishaq/openlane2/designs/picorv_test/models/dqn_model.pth",
+#     "DQN_MAX_ITERATIONS=50",
+#     "DQN_TARGET_SLACK=0.0",
+#     "DQN_POWER_WEIGHT=0.3",
+#     "DQN_TRAINING_MODE=True",
+#     "RSZ_DONT_TOUCH_RX=False",
+# }
 
 config, design_dir = Config.load(
     config_in="/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-01-17_18-02-01/51-openroad-stapostpnr/config.json",

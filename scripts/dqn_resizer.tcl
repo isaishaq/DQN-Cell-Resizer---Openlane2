@@ -99,6 +99,13 @@ foreach corner $all_corners {
     report_power -corner $corner_name
     
     puts "\[INFO\] ============================================================\n"
+
+    # User testing hook
+    puts "TCL_ENV_IN -> \n$::env(_TCL_ENV_IN)"
+    puts "PNR_EXCLUDED_CELLS -> \n$::env(_PNR_EXCLUDED_CELLS)"
+    puts "SDC_IN -> \n$::env(_SDC_IN)"
+    #gui::show
+
 }
 
 # Summary across all corners
