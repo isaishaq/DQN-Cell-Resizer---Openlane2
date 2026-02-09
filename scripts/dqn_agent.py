@@ -2,14 +2,16 @@
 """
 DQN-based Cell Resizer for OpenLane 2
 """
-import odb
+import os
+import subprocess
+import tempfile
+import json
 import numpy as np
 import torch
 import torch.nn as nn
 import argparse
 from collections import deque
 from typing import List, Tuple, Dict
-from openroad import Design, Tech
 
 # ==================== DQN Network ====================
 class DQNetwork(nn.Module):
@@ -48,33 +50,110 @@ class CellResizingEnv:
     """
     
     def __init__(self, odb_path: str, target_slack: float = 0.0, 
-                 power_weight: float = 0.3):
+                 power_weight: float = 0.3, work_dir: str = None):
         self.target_slack = target_slack
         self.power_weight = power_weight
+        self.odb_path = os.path.abspath(odb_path)
         
-        # Load ODB database
-        self.tech = Tech()
-        self.design = Design(self.tech)
-        self.design.readDb(odb_path)
+        # Create working directory for output files
+        self.work_dir = work_dir or tempfile.mkdtemp(prefix="cell_resize_env_")
+        os.makedirs(self.work_dir, exist_ok=True)
         
-        self.db = self.tech.getDB()
-        self.block = self.db.getChip().getBlock()
+        # Directory containing TCL scripts (like get_script_path in TclStep)
+        self.scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tcl")
         
-        # Get STA engine
-        self.sta = self.design.getOpenSta()
+        # Store timing metrics cache
+        self._timing_cache = {}
+        self._cache_valid = False
         
-        # Track resizable cells
-        self.resizable_cells = self._find_resizable_cells()
+        # For now, use dummy data - will populate via OpenROAD commands
+        self.resizable_cells = []
         
-        # Initial metrics
-        self.initial_wns = self._get_wns()
-        self.initial_tns = self._get_tns()
-        self.initial_power = self._get_power()
+        # Initial metrics - will be computed
+        self._update_timing_metrics()
+        self.initial_wns = self._timing_cache.get('wns', 0.0)
+        self.initial_tns = self._timing_cache.get('tns', 0.0)
+        self.initial_power = self._timing_cache.get('power', 0.0)
         
         print(f"[ENV] Initial WNS: {self.initial_wns:.4f} ns")
         print(f"[ENV] Initial TNS: {self.initial_tns:.4f} ns")
         print(f"[ENV] Initial Power: {self.initial_power:.6f} W")
         print(f"[ENV] Resizable cells: {len(self.resizable_cells)}")
+        print(f"[ENV] Work directory: {self.work_dir}")
+        print(f"[ENV] Scripts directory: {self.scripts_dir}")
+    
+    def _get_script_path(self, script_name: str) -> str:
+        """
+        Get path to a TCL script file (like TclStep.get_script_path).
+        
+        Args:
+            script_name: Name of the script file (e.g., 'get_wns.tcl')
+            
+        Returns:
+            Absolute path to the script
+        """
+        return os.path.join(self.scripts_dir, script_name)
+    
+    def _run_tcl_script(self, script_name: str, env_vars: Dict[str, str] = None) -> subprocess.CompletedProcess:
+        """
+        Run a TCL script with OpenROAD (like TclStep.run_subprocess).
+        
+        Args:
+            script_name: Name of the TCL script in scripts_dir
+            env_vars: Additional environment variables to pass
+            
+        Returns:
+            subprocess.CompletedProcess result
+        """
+        script_path = self._get_script_path(script_name)
+        
+        # Prepare environment (like TclStep.prepare_env)
+        env = os.environ.copy()
+        env['ODB_PATH'] = self.odb_path
+        
+        # Add any additional env vars
+        if env_vars:
+            env.update(env_vars)
+        
+        # Run OpenROAD (like TclStep.get_command)
+        result = subprocess.run(
+            ['openroad', '-no_splash', '-exit', script_path],
+            capture_output=True,
+            text=True,
+            timeout=30,
+            env=env
+        )
+        
+        return result
+    
+    def _update_timing_metrics(self):
+        """
+        Update timing metrics by running TCL script.
+        Uses the TclStep pattern with separate script files.
+        """
+        metrics_file = os.path.join(self.work_dir, "timing_metrics.json")
+        
+        try:
+            # Run TCL script with env vars
+            result = self._run_tcl_script(
+                'get_timing_metrics.tcl',
+                {'METRICS_FILE': metrics_file}
+            )
+            
+            if result.returncode == 0 and os.path.exists(metrics_file):
+                with open(metrics_file, 'r') as f:
+                    self._timing_cache = json.load(f)
+                self._cache_valid = True
+            else:
+                print(f"[WARNING] Timing metrics script failed:")
+                print(f"  stdout: {result.stdout}")
+                print(f"  stderr: {result.stderr}")
+                self._timing_cache = {'wns': 0.0, 'tns': 0.0, 'power': 0.0}
+                self._cache_valid = False
+        except Exception as e:
+            print(f"[ERROR] Failed to get timing metrics: {e}")
+            self._timing_cache = {'wns': 0.0, 'tns': 0.0, 'power': 0.0}
+            self._cache_valid = False
     
     def _find_resizable_cells(self) -> List[Dict]:
         """
@@ -128,21 +207,22 @@ class CellResizingEnv:
         return variants if variants else [lib.findMaster(cell_name)]
     
     def _get_wns(self) -> float:
-        """Get Worst Negative Slack"""
-        # Use OpenSTA to get timing
-        sta = self.sta
-        return float(sta.getWorstSlack())
+        """Get Worst Negative Slack using dedicated TCL script"""
+        if not self._cache_valid:
+            self._update_timing_metrics()
+        return self._timing_cache.get('wns', 0.0)
     
     def _get_tns(self) -> float:
-        """Get Total Negative Slack"""
-        sta = self.sta
-        return float(sta.getTotalNegativeSlack())
+        """Get Total Negative Slack using dedicated TCL script"""
+        if not self._cache_valid:
+            self._update_timing_metrics()
+        return self._timing_cache.get('tns', 0.0)
     
     def _get_power(self) -> float:
-        """Get total power consumption"""
-        sta = self.sta
-        power = sta.getPower()
-        return float(power.total()) if power else 0.0
+        """Get total power consumption using dedicated TCL script"""
+        if not self._cache_valid:
+            self._update_timing_metrics()
+        return self._timing_cache.get('power', 0.0)
     
     def get_cell_features(self, cell_info: Dict) -> np.ndarray:
         """
@@ -285,9 +365,25 @@ class CellResizingEnv:
         
         return self.get_state(), reward, done
     
-    def save(self, path: str):
-        """Save modified database"""
-        self.design.writeDb(path)
+    def save(self, output_path: str):
+        """
+        Save modified database using TCL script.
+        """
+        try:
+            result = self._run_tcl_script(
+                'save_db.tcl',
+                {'OUTPUT_PATH': os.path.abspath(output_path)}
+            )
+            
+            if result.returncode == 0:
+                print(f"[ENV] Saved database to {output_path}")
+                # Update the current ODB path to the new saved location
+                self.odb_path = os.path.abspath(output_path)
+            else:
+                print(f"[ERROR] Failed to save database:")
+                print(f"  stderr: {result.stderr}")
+        except Exception as e:
+            print(f"[ERROR] Failed to save database: {e}")
 
 
 # ==================== DQN Agent ====================
@@ -380,6 +476,7 @@ class DQNAgent:
 def main():
     parser = argparse.ArgumentParser()
     parser.add_argument('--odb', required=True, help='Input ODB file')
+    parser.add_argument('--work-dir', help='Working directory for TCL scripts and outputs')
     parser.add_argument('--model', help='Pre-trained model path')
     parser.add_argument('--max-iterations', type=int, default=50)
     parser.add_argument('--target-slack', type=float, default=0.0)
@@ -391,7 +488,8 @@ def main():
     env = CellResizingEnv(
         args.odb,
         target_slack=args.target_slack,
-        power_weight=args.power_weight
+        power_weight=args.power_weight,
+        work_dir=args.work_dir
     )
     
     # Initialize agent

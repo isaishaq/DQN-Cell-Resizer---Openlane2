@@ -101,9 +101,9 @@ foreach corner $all_corners {
     puts "\[INFO\] ============================================================\n"
 
     # User testing hook
-    puts "TCL_ENV_IN -> \n$::env(_TCL_ENV_IN)"
-    puts "PNR_EXCLUDED_CELLS -> \n$::env(_PNR_EXCLUDED_CELLS)"
-    puts "SDC_IN -> \n$::env(_SDC_IN)"
+    # puts "TCL_ENV_IN -> \n$::env(_TCL_ENV_IN)"
+    # puts "PNR_EXCLUDED_CELLS -> \n$::env(_PNR_EXCLUDED_CELLS)"
+    # puts "SDC_IN -> \n$::env(_SDC_IN)"
     #gui::show
 
 }
@@ -139,28 +139,51 @@ puts "\[INFO\] ============================================================\n"
 
 puts "\[INFO\] Starting DQN-based resizing..."
 
-# Call Python DQN agent via OpenROAD's Python interface
-# This is where the magic happens! -->
-# set python_script $::env(DQN_AGENT_SCRIPT)
+# Call Python DQN agent - pass data via environment variables
+# This follows the OpenLane 2 pattern of env-based communication
 
-# Export current database for Python to access
-set temp_odb "/tmp/dqn_temp_[pid].odb"
-write_db $temp_odb
+# Set environment variables for Python script
+set ::env(DQN_ODB_PATH) "$::env(CURRENT_ODB)"
+set ::env(DQN_WORK_DIR) "$::env(STEP_DIR)/dqn_work"
+set ::env(DQN_SCRIPTS_DIR) "[file dirname $::env(DQN_AGENT_SCRIPT)]/tcl"
 
-# Run DQN agent
-# set dqn_result [exec python3 $python_script \
-#     --odb $temp_odb \
-#     --model $::env(DQN_MODEL_PATH) \
-#     --max-iterations $::env(DQN_MAX_ITERATIONS) \
-#     --target-slack $::env(DQN_TARGET_SLACK) \
-#     --power-weight $::env(DQN_POWER_WEIGHT) \
-#     --training $::env(DQN_TRAINING_MODE)]
+# Ensure work directory exists
+file mkdir $::env(DQN_WORK_DIR)
 
-# puts "\[INFO\] DQN Result: $dqn_result"
+# Write current database for Python to access
+puts "\[INFO\] Exporting current database..."
+write_db $::env(DQN_ODB_PATH)
 
-# Reload modified database
-# read_db $temp_odb
-# file delete $temp_odb
+# Run DQN agent with work directory
+puts "\[INFO\] Launching DQN agent..."
+puts "\[INFO\] ODB Path: $::env(DQN_ODB_PATH)"
+puts "\[INFO\] Work Dir: $::env(DQN_WORK_DIR)"
+puts "\[INFO\] Scripts Dir: $::env(DQN_SCRIPTS_DIR)"
+
+set dqn_cmd [list python3 $::env(DQN_AGENT_SCRIPT) \
+    --odb $::env(DQN_ODB_PATH) \
+    --work-dir $::env(DQN_WORK_DIR) \
+    --model $::env(DQN_MODEL_PATH) \
+    --max-iterations $::env(DQN_MAX_ITERATIONS) \
+    --target-slack $::env(DQN_TARGET_SLACK) \
+    --power-weight $::env(DQN_POWER_WEIGHT) \
+    --training $::env(DQN_TRAINING_MODE)]
+
+if { [catch {exec {*}$dqn_cmd >@ stdout 2>@ stderr} dqn_result] } {
+    puts "\[ERROR\] DQN agent failed: $dqn_result"
+    puts "\[ERROR\] Continuing with original database..."
+} else {
+    puts "\[INFO\] DQN agent completed successfully"
+    
+    # Reload modified database (agent saves back to the same path)
+    if { [file exists $::env(DQN_ODB_PATH)] } {
+        puts "\[INFO\] Reloading modified database..."
+        read_db $::env(DQN_ODB_PATH)
+        
+        # Invalidate timing cache - force recalculation
+        puts "\[INFO\] Updating timing after DQN resizing..."
+    }
+}
 
 # Re-estimate parasitics after resizing
 estimate_parasitics -placement
