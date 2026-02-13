@@ -2,6 +2,15 @@
 # Environment variables expected:
 #   METRICS_FILE - Output JSON file path
 
+source $::env(SCRIPTS_DIR)/openroad/common/io.tcl
+source $::env(SCRIPTS_DIR)/openroad/common/resizer.tcl
+
+# Load design with parasitics
+puts "\[INFO\] Loading corners"
+load_rsz_corners
+puts "\[INFO\] Loading ODB"
+read_current_odb
+
 # Get timing metrics
 set wns [sta::worst_slack]
 set tns [sta::total_negative_slack]

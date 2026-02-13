@@ -1,3 +1,7 @@
+# Change this depends on the step you want to load
+set step_dir "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-01-17_18-33-44/74-dqn-resizer-test/"
+set ::env(CURRENT_SPEF) "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-01-17_18-33-44/52-openroad-rcx/"
+set ::env(CURRENT_SPEF_nom_tt_025C_1v80) "$::env(CURRENT_SPEF)/nom/picorv32a.nom.spef"
 # Load OpenROAD utilities
 set ::env(RSZ_DONT_TOUCH_RX) False
 set ::env(DPL_CELL_PADDING) 2
@@ -7,9 +11,16 @@ set ::env(DPL_CELL_PADDING) 0
 set ::env(RSZ_CORNER_0) "nom_tt_025C_1v80 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
 set ::env(RSZ_CORNER_1) "nom_ss_100C_1v60 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
 set ::env(RSZ_CORNER_2) "nom_ff_n40C_1v95 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
+# set ::env(RSZ_CORNER_3) "min_tt_025C_1v80 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+# set ::env(RSZ_CORNER_4) "min_ss_100C_1v60 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
+# set ::env(RSZ_CORNER_5) "min_ff_n40C_1v95 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
+# set ::env(RSZ_CORNER_6) "max_tt_025C_1v80 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+# set ::env(RSZ_CORNER_7) "max_ss_100C_1v60 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
+# set ::env(RSZ_CORNER_8) "max_ff_n40C_1v95 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
+
 
 set ::env(SCRIPTS_DIR) /home/isaishaq/openlane2/openlane/scripts/
-set ::env(_TCL_ENV_IN) /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-01-17_18-33-44/74-dqn-resizer-test/_env.tcl
+set ::env(_TCL_ENV_IN) ${step_dir}/_env.tcl
 source $::env(SCRIPTS_DIR)/openroad/common/io.tcl
 source $::env(SCRIPTS_DIR)/openroad/common/resizer.tcl
 
@@ -48,6 +59,7 @@ set_dont_touch_objects
 if { [info exists ::env(CURRENT_SPEF)] } {
     foreach corner $::env(STA_CORNERS) {
         if { [info exists ::env(CURRENT_SPEF_$corner)] } {
+            puts "\[INFO\] Reading SPEF for corner $corner from $::env(CURRENT_SPEF_$corner)…"
             read_spef -corner $corner $::env(CURRENT_SPEF_$corner)
         }
     }

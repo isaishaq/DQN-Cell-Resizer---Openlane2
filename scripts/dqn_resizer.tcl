@@ -144,7 +144,8 @@ puts "\[INFO\] Starting DQN-based resizing..."
 
 # Set environment variables for Python script
 set ::env(DQN_ODB_PATH) "$::env(CURRENT_ODB)"
-set ::env(DQN_WORK_DIR) "$::env(STEP_DIR)/dqn_work"
+#set ::env(DQN_WORK_DIR) "$::env(STEP_DIR)/dqn_work"
+set ::env(DQN_WORK_DIR) "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-01-17_18-33-44/74-dqn-resizer-test/"
 set ::env(DQN_SCRIPTS_DIR) "[file dirname $::env(DQN_AGENT_SCRIPT)]/tcl"
 
 # Ensure work directory exists

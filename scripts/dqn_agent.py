@@ -11,7 +11,104 @@ import torch
 import torch.nn as nn
 import argparse
 from collections import deque
-from typing import List, Tuple, Dict
+from typing import List, Tuple, Dict, Optional
+
+# ==================== TCL Script Runner ====================
+class TclScriptRunner:
+    """
+    Helper class for running TCL scripts with OpenROAD.
+    Inspired by TclStep pattern from OpenLane 2.
+    """
+    
+    def __init__(self, scripts_dir: str, work_dir: str, odb_path: str):
+        """
+        Initialize TCL script runner.
+        
+        Args:
+            scripts_dir: Directory containing TCL scripts
+            work_dir: Working directory for output files
+            odb_path: Path to OpenDB database
+        """
+        self.scripts_dir = os.path.abspath(scripts_dir)
+        self.work_dir = os.path.abspath(work_dir)
+        self.odb_path = os.path.abspath(odb_path)
+        
+        os.makedirs(self.work_dir, exist_ok=True)
+    
+    def get_script_path(self, script_name: str) -> str:
+        """
+        Get absolute path to a TCL script (like TclStep.get_script_path).
+        
+        Args:
+            script_name: Name of the script file (e.g., 'get_wns.tcl')
+            
+        Returns:
+            Absolute path to the script
+        """
+        return os.path.join(self.scripts_dir, script_name)
+    
+    def prepare_env(self, extra_vars: Optional[Dict[str, str]] = None) -> Dict[str, str]:
+        """
+        Prepare environment variables for TCL script (like TclStep.prepare_env).
+        
+        Args:
+            extra_vars: Additional environment variables to include
+            
+        Returns:
+            Environment dictionary
+        """
+        env = os.environ.copy()
+        env['ODB_PATH'] = self.odb_path
+        env['WORK_DIR'] = self.work_dir
+        
+        if extra_vars:
+            env.update(extra_vars)
+        
+        return env
+    
+    def get_command(self, script_path: str) -> List[str]:
+        """
+        Get command to run TCL script (like TclStep.get_command).
+        
+        Args:
+            script_path: Path to the TCL script
+            
+        Returns:
+            Command list for subprocess
+        """
+        return ['openroad', '-no_splash', '-exit', script_path]
+    
+    def run_subprocess(
+        self, 
+        script_name: str, 
+        env_vars: Optional[Dict[str, str]] = None,
+        timeout: int = 30
+    ) -> subprocess.CompletedProcess:
+        """
+        Run a TCL script with OpenROAD (like TclStep.run_subprocess).
+        
+        Args:
+            script_name: Name of the TCL script in scripts_dir
+            env_vars: Additional environment variables to pass
+            timeout: Timeout in seconds
+            
+        Returns:
+            subprocess.CompletedProcess result
+        """
+        script_path = self.get_script_path(script_name)
+        env = self.prepare_env(env_vars)
+        command = self.get_command(script_path)
+        
+        result = subprocess.run(
+            command,
+            capture_output=True,
+            text=True,
+            timeout=timeout,
+            env=env
+        )
+        
+        return result
+
 
 # ==================== DQN Network ====================
 class DQNetwork(nn.Module):
@@ -59,8 +156,11 @@ class CellResizingEnv:
         self.work_dir = work_dir or tempfile.mkdtemp(prefix="cell_resize_env_")
         os.makedirs(self.work_dir, exist_ok=True)
         
-        # Directory containing TCL scripts (like get_script_path in TclStep)
-        self.scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tcl")
+        # Directory containing TCL scripts
+        scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tcl")
+        
+        # Initialize TCL script runner (like TclStep)
+        self.tcl = TclScriptRunner(scripts_dir, self.work_dir, self.odb_path)
         
         # Store timing metrics cache
         self._timing_cache = {}
@@ -80,62 +180,18 @@ class CellResizingEnv:
         print(f"[ENV] Initial Power: {self.initial_power:.6f} W")
         print(f"[ENV] Resizable cells: {len(self.resizable_cells)}")
         print(f"[ENV] Work directory: {self.work_dir}")
-        print(f"[ENV] Scripts directory: {self.scripts_dir}")
-    
-    def _get_script_path(self, script_name: str) -> str:
-        """
-        Get path to a TCL script file (like TclStep.get_script_path).
-        
-        Args:
-            script_name: Name of the script file (e.g., 'get_wns.tcl')
-            
-        Returns:
-            Absolute path to the script
-        """
-        return os.path.join(self.scripts_dir, script_name)
-    
-    def _run_tcl_script(self, script_name: str, env_vars: Dict[str, str] = None) -> subprocess.CompletedProcess:
-        """
-        Run a TCL script with OpenROAD (like TclStep.run_subprocess).
-        
-        Args:
-            script_name: Name of the TCL script in scripts_dir
-            env_vars: Additional environment variables to pass
-            
-        Returns:
-            subprocess.CompletedProcess result
-        """
-        script_path = self._get_script_path(script_name)
-        
-        # Prepare environment (like TclStep.prepare_env)
-        env = os.environ.copy()
-        env['ODB_PATH'] = self.odb_path
-        
-        # Add any additional env vars
-        if env_vars:
-            env.update(env_vars)
-        
-        # Run OpenROAD (like TclStep.get_command)
-        result = subprocess.run(
-            ['openroad', '-no_splash', '-exit', script_path],
-            capture_output=True,
-            text=True,
-            timeout=30,
-            env=env
-        )
-        
-        return result
+        print(f"[ENV] Scripts directory: {self.tcl.scripts_dir}")
     
     def _update_timing_metrics(self):
         """
         Update timing metrics by running TCL script.
-        Uses the TclStep pattern with separate script files.
+        Uses TclScriptRunner following the TclStep pattern.
         """
         metrics_file = os.path.join(self.work_dir, "timing_metrics.json")
         
         try:
-            # Run TCL script with env vars
-            result = self._run_tcl_script(
+            # Run TCL script using the runner (like TclStep.run_subprocess)
+            result = self.tcl.run_subprocess(
                 'get_timing_metrics.tcl',
                 {'METRICS_FILE': metrics_file}
             )
@@ -367,18 +423,20 @@ class CellResizingEnv:
     
     def save(self, output_path: str):
         """
-        Save modified database using TCL script.
+        Save modified database using TCL script runner.
         """
         try:
-            result = self._run_tcl_script(
+            # Use the TCL runner (like TclStep)
+            result = self.tcl.run_subprocess(
                 'save_db.tcl',
                 {'OUTPUT_PATH': os.path.abspath(output_path)}
             )
             
             if result.returncode == 0:
                 print(f"[ENV] Saved database to {output_path}")
-                # Update the current ODB path to the new saved location
+                # Update the current ODB path
                 self.odb_path = os.path.abspath(output_path)
+                self.tcl.odb_path = self.odb_path
             else:
                 print(f"[ERROR] Failed to save database:")
                 print(f"  stderr: {result.stderr}")
@@ -423,7 +481,6 @@ class DQNAgent:
         self.memory.append((state, action, reward, next_state, done))
     
     def replay(self, batch_size=32):
-        """Train on batch of experiences"""
         if len(self.memory) < batch_size:
             return
         
