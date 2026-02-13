@@ -2,6 +2,10 @@
 set step_dir "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-01-17_18-33-44/74-dqn-resizer-test/"
 set ::env(CURRENT_SPEF) "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-01-17_18-33-44/52-openroad-rcx/"
 set ::env(CURRENT_SPEF_nom_tt_025C_1v80) "$::env(CURRENT_SPEF)/nom/picorv32a.nom.spef"
+set ::env(CURRENT_SPEF_nom_ss_100C_1v60) "$::env(CURRENT_SPEF)/nom/picorv32a.nom.spef"
+
+
+
 # Load OpenROAD utilities
 set ::env(RSZ_DONT_TOUCH_RX) False
 set ::env(DPL_CELL_PADDING) 2
@@ -23,6 +27,9 @@ set ::env(SCRIPTS_DIR) /home/isaishaq/openlane2/openlane/scripts/
 set ::env(_TCL_ENV_IN) ${step_dir}/_env.tcl
 source $::env(SCRIPTS_DIR)/openroad/common/io.tcl
 source $::env(SCRIPTS_DIR)/openroad/common/resizer.tcl
+
+# SDC overrides
+set ::env(CLOCK_PERIOD) 19
 
 set ::env(_PNR_EXCLUDED_CELLS) {
 sky130_fd_sc_hd__lpflow_decapkapwr_12 sky130_fd_sc_hd__lpflow_decapkapwr_6 sky130_fd_sc_hd__lpflow_lsbuf_lh_isowell_4
@@ -55,15 +62,18 @@ read_current_odb
 set_propagated_clock [all_clocks]
 set_dont_touch_objects
 
+estimate_parasitics -global_routing
+read_spef -corner nom_ss_100C_1v60 $::env(CURRENT_SPEF_nom_ss_100C_1v60)
+
 # Load SPEF parasitics for accurate timing
-if { [info exists ::env(CURRENT_SPEF)] } {
-    foreach corner $::env(STA_CORNERS) {
-        if { [info exists ::env(CURRENT_SPEF_$corner)] } {
-            puts "\[INFO\] Reading SPEF for corner $corner from $::env(CURRENT_SPEF_$corner)…"
-            read_spef -corner $corner $::env(CURRENT_SPEF_$corner)
-        }
-    }
-}
+# if { [info exists ::env(CURRENT_SPEF)] } {
+#     foreach corner $::env(STA_CORNERS) {
+#         if { [info exists ::env(CURRENT_SPEF_$corner)] } {
+#             puts "\[INFO\] Reading SPEF for corner $corner from $::env(CURRENT_SPEF_$corner)…"
+#             read_spef -corner $corner $::env(CURRENT_SPEF_$corner)
+#         }
+#     }
+# }
 
 # Set RC values
 source $::env(SCRIPTS_DIR)/openroad/common/set_rc.tcl
