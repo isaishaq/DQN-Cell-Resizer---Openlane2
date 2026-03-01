@@ -30,15 +30,22 @@ config, design_dir = Config.load(
         universal_flow_config_variables
     ),
     design_dir="/home/isaishaq/openlane2/designs/picorv_test",
-    pdk="sky130A",
-    scl="sky130_fd_sc_hd",
+    #pdk="sky130A",
+    #scl="sky130_fd_sc_hd",
     pdk_root="/home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af",
 )
 
 # Load the state from STAPostPNR
 # Find your latest run directory
-run_dir = "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-01-17_18-33-44"
-sta_state_path = f"{run_dir}/53-openroad-stapostpnr/state_out.json"
+
+## SET 1
+#run_dir = "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-01-17_18-33-44"
+#sta_state_path = f"{run_dir}/53-openroad-stapostpnr/state_out.json"
+
+## SET 2
+run_dir = "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/"
+sta_state_path = f"{run_dir}/51-openroad-stapostpnr/state_out.json"
+
 print(f"Loading state from: {sta_state_path}")
 state_in = State.loads(open(sta_state_path, encoding="utf8").read())
 
