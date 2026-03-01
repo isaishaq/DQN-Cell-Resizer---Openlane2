@@ -21,26 +21,33 @@ foreach corner [sta::corners] {
     puts "\[INFO\] Available corner: [[lindex $corner 0] name]"
 }
 
+# Enable only for 1 corner -> nom_ss_100C_1v60
 
 foreach corner [sta::corners] {
+    # Enable only for 1 corner -> nom_ss_100C_1v60
+    if { [$corner name] ne "nom_ss_100C_1v60" } {
+        puts "\[INFO\] Skipping corner [[lindex $corner 0] name] (only nom_ss_100C_1v60 is enabled)"
+        continue
+    }
+
     set corner_name [[lindex $corner 0] name]
     puts "Printing metrics for corner: $corner_name"
     sta::set_cmd_corner $corner
 
     file mkdir $env(STEP_DIR)/reports/$corner_name
-    set folder_path $env(STEP_DIR)/reports/$corner_name
+    set folder_path $env(STEP_DIR)/reports/${env(CURRENT_ITERATION)}_$corner_name
 
     set clocks [sta::sort_by_name [sta::all_clocks]]
 
     puts "Creating min.rpt"
-    report_checks -sort_by_slack -path_delay min -fields {slew cap input nets fanout} -format full_clock_expanded -group_count 1000 -corner [$corner name] > $folder_path/min.rpt
+    report_checks -sort_by_slack -path_delay min -fields {slew cap input nets fanout} -format full_clock_expanded -group_count 1000 -corner [$corner name] -digits 3 > $folder_path/min.rpt
     set tns [total_negative_slack -corner [$corner name] -min]
     set file [open $folder_path/tns_min.rpt w]
     puts $file "TNS: $tns" 
     close $file
 
     puts "Creating max.rpt"
-    report_checks -sort_by_slack -path_delay max -fields {slew cap input nets fanout} -format full_clock_expanded -group_count 1000 -corner [$corner name]  > $folder_path/max.rpt
+    report_checks -sort_by_slack -path_delay max -fields {slew cap input nets fanout} -format full_clock_expanded -group_count 1000 -corner [$corner name] -digits 3 > $folder_path/max.rpt
     set tns [total_negative_slack -corner [$corner name] -max]
     set file [open $folder_path/tns_max.rpt w]
     puts $file "TNS: $tns"
