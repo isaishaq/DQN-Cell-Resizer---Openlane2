@@ -20,8 +20,16 @@ source $::env(SCRIPTS_DIR)/openroad/common/resizer.tcl
 # SDC overrides
 set ::env(CLOCK_PERIOD) 16
 
-# Path
+# DQN Paths
 set ::env(DQN_MODEL_PATH) "$::env(STEP_DIR)/model/dqn_model.pth"
+if {![info exists ::env(DQN_AGENT_SCRIPT)]} {
+    set ::env(DQN_AGENT_SCRIPT) "/home/isaishaq/openlane2/designs/picorv_test/scripts/dqn_agent.py"
+}
+
+# Create output directories
+file mkdir "$::env(STEP_DIR)/reports"
+file mkdir "$::env(STEP_DIR)/actions"
+file mkdir "$::env(STEP_DIR)/model"
 
 # Load design with parasitics
 puts "\[INFO\] Loading corners"
@@ -40,8 +48,14 @@ estimate_parasitics -global_routing
 source $::env(SCRIPTS_DIR)/openroad/common/set_rc.tcl
 
 
-puts "\[INFO\] Training DQN agent for up to 50 iterations..."
-for {set iter 1} {$iter <= 5} {incr iter} {
+puts "\[INFO\] Starting DQN-based cell resizing optimization..."
+puts "  Max iterations: [expr {[info exists ::env(DQN_MAX_ITERATIONS)] ? $::env(DQN_MAX_ITERATIONS) : 50}]"
+puts "  Target WNS: 0.0 ns"
+puts "  Model: $::env(DQN_MODEL_PATH)"
+
+set dqn_max_iters [expr {[info exists ::env(DQN_MAX_ITERATIONS)] ? $::env(DQN_MAX_ITERATIONS) : 50}]
+
+for {set iter 1} {$iter <= $dqn_max_iters} {incr iter} {
     set_cmd_units -time ns -capacitance pF -current mA -voltage V -resistance kOhm -distance um
     set ::env(CURRENT_ITERATION) $iter
 
@@ -60,59 +74,115 @@ for {set iter 1} {$iter <= 5} {incr iter} {
         --model $model_file \
         --iteration $iter \
         --verbose \
-        --epsilon 0.8
+        --epsilon 0.1
     
-    # # Read and apply actions
-    # set fp [open $actions_file r]
-    # while {[gets $fp line] >= 0} {
-    #     # Skip comments
-    #     if {[string match "#*" $line]} { continue }
-    #     if {$line eq ""} { continue }
-        
-    #     # Parse: instance_name new_cell_type
-    #     set parts [split $line]
-    #     set instance [lindex $parts 0]
-    #     set new_cell [lindex $parts 1]
-        
-    #     # Apply resize
-    #     # set inst [odb::dbInst_find $block $instance]
-    #     set inst [get_cells $instance]
-    #     # Try if not WARNING STA-0349: Cannot find instance $instance in design
-    #     if {$inst != ""} {
-    #         set ref_lib [get_lib_cells $new_cell]
-    #         if { [llength $ref_lib] != 0 } {
-    #             replace_cell $inst $new_cell
-    #             puts "Resized $instance to $new_cell"
-    #         }
-    #     } else {
-    #         puts "WARNING: Instance $instance not found in design, skipping resize"
-    #     }
-    # }
-    # close $fp
+    # Read and apply actions
+    puts "\[INFO\] Applying DQN actions from $actions_file"
+    set num_resizes 0
+    set num_skipped 0
     
-    # # Update timing
-    # # sta::update_timing
+    if {[file exists $actions_file]} {
+        set fp [open $actions_file r]
+        while {[gets $fp line] >= 0} {
+            # Skip comments and empty lines
+            if {[string match "#*" $line]} { continue }
+            if {$line eq ""} { continue }
+            
+            # Parse: instance_name new_cell_type
+            set parts [split $line]
+            if {[llength $parts] != 2} { continue }
+            
+            set instance [lindex $parts 0]
+            set new_cell [lindex $parts 1]
+            
+            # Apply resize
+            set inst [get_cells -quiet $instance]
+            if {$inst != ""} {
+                set ref_lib [get_lib_cells -quiet $new_cell]
+                if {$ref_lib != ""} {
+                    replace_cell $inst $new_cell
+                    puts "  ✓ Resized $instance -> $new_cell"
+                    incr num_resizes
+                } else {
+                    puts "  ✗ Cell type $new_cell not found in library"
+                    incr num_skipped
+                }
+            } else {
+                puts "  ✗ Instance $instance not found"
+                incr num_skipped
+            }
+        }
+        close $fp
+    } else {
+        puts "\[WARNING\] Actions file not found: $actions_file"
+    }
     
-    # # Check convergence
-    # set wns [sta::worst_slack -max]
-    # if {$wns >= 0} {
-    #     puts "Converged! WNS = $wns"
-    #     break
-    # }
+    puts "\[INFO\] Applied $num_resizes resizes, skipped $num_skipped"
+    
+    # Update timing after resizing
+    estimate_parasitics -global_routing
+    
+    # Check convergence
+    set wns [sta::worst_slack -max]
+    set tns [sta::total_negative_slack -max]
+    
+    puts "\[INFO\] Iteration $iter complete: WNS=$wns, TNS=$tns"
+    
+    # Break if timing is met
+    if {$wns >= 0.0} {
+        puts "\[SUCCESS\] ✓ Timing constraints met! WNS = $wns"
+        break
+    }
+    
+    # Break if no actions taken
+    if {$num_resizes == 0} {
+        puts "\[INFO\] No more actions available - converged"
+        break
+    }
 
 }
 
+# ============================================================================
+# Post-processing
+# ============================================================================
 
+puts "\n========================================="
+puts "DQN Cell Resizing Complete"
+puts "========================================="
 
+# Re-estimate parasitics one final time
+estimate_parasitics -global_routing
 
-# Re-estimate parasitics after resizing
-# estimate_parasitics -global_routing
+# Legalize placement if needed (cells may have changed size)
+puts "\[INFO\] Legalizing placement..."
+source $::env(SCRIPTS_DIR)/openroad/common/dpl.tcl
 
-# Legalize placement if needed
-# source $::env(SCRIPTS_DIR)/openroad/common/dpl.tcl
-# unset_dont_touch_objects
+# Unset dont_touch
+unset_dont_touch_objects
 
-# Final STA
-# report_checks -path_delay min_max -format full_clock_expanded
+# Final timing report
+puts "\[INFO\] Generating final timing report..."
+set final_report_dir "$::env(STEP_DIR)/reports/final"
+file mkdir $final_report_dir
 
-# write_views
+report_checks -path_delay max -format full_clock_expanded \
+    > $final_report_dir/timing_final_max.rpt
+report_checks -path_delay min -format full_clock_expanded \
+    > $final_report_dir/timing_final_min.rpt
+
+set final_wns [sta::worst_slack -max]
+set final_tns [sta::total_negative_slack -max]
+# set final_area [sta::design_area]
+
+puts "\n========================================="
+puts "Final Results:"
+puts "  WNS: $final_wns ns"
+puts "  TNS: $final_tns ns"
+# puts "  Area: $final_area um²"
+puts "========================================="
+
+# Write output views
+puts "\[INFO\] Writing output database..."
+write_views
+
+puts "\[SUCCESS\] DQN resizing flow complete!"
