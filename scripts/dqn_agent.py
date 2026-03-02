@@ -1,614 +1,641 @@
 #!/usr/bin/env python3
 """
-DQN-based Cell Resizer for OpenLane 2
+DQN Agent for Cell Resizing - OpenLane2 Integration
+====================================================
+
+This agent is invoked by TCL (dqn_resizer.tcl) as a subprocess.
+It reads timing reports, makes DQN-based decisions, and outputs actions.
+
+Workflow:
+    TCL -> timing.rpt -> Python (this file) -> actions.txt -> TCL
+
+Usage:
+    python3 dqn_agent.py \\
+        --timing-report path/to/timing.rpt \\
+        --output-actions path/to/actions.txt \\
+        --model path/to/model.pth \\
+        --iteration 1
+
+Author: DQN Cell Resizing Team
 """
+
 import os
-import subprocess
-import tempfile
+import sys
+import argparse
 import json
 import numpy as np
-import torch
-import torch.nn as nn
-import argparse
-from collections import deque
-from typing import List, Tuple, Dict, Optional
+from pathlib import Path
+from typing import Dict, List, Tuple, Optional
 
-# ==================== TCL Script Runner ====================
-class TclScriptRunner:
-    """
-    Helper class for running TCL scripts with OpenROAD.
-    Inspired by TclStep pattern from OpenLane 2.
-    """
-    
-    def __init__(self, scripts_dir: str, work_dir: str, odb_path: str):
-        """
-        Initialize TCL script runner.
-        
-        Args:
-            scripts_dir: Directory containing TCL scripts
-            work_dir: Working directory for output files
-            odb_path: Path to OpenDB database
-        """
-        self.scripts_dir = os.path.abspath(scripts_dir)
-        self.work_dir = os.path.abspath(work_dir)
-        self.odb_path = os.path.abspath(odb_path)
-        
-        os.makedirs(self.work_dir, exist_ok=True)
-    
-    def get_script_path(self, script_name: str) -> str:
-        """
-        Get absolute path to a TCL script (like TclStep.get_script_path).
-        
-        Args:
-            script_name: Name of the script file (e.g., 'get_wns.tcl')
-            
-        Returns:
-            Absolute path to the script
-        """
-        return os.path.join(self.scripts_dir, script_name)
-    
-    def prepare_env(self, extra_vars: Optional[Dict[str, str]] = None) -> Dict[str, str]:
-        """
-        Prepare environment variables for TCL script (like TclStep.prepare_env).
-        
-        Args:
-            extra_vars: Additional environment variables to include
-            
-        Returns:
-            Environment dictionary
-        """
-        env = os.environ.copy()
-        env['ODB_PATH'] = self.odb_path
-        env['WORK_DIR'] = self.work_dir
-        
-        if extra_vars:
-            env.update(extra_vars)
-        
-        return env
-    
-    def get_command(self, script_path: str) -> List[str]:
-        """
-        Get command to run TCL script (like TclStep.get_command).
-        
-        Args:
-            script_path: Path to the TCL script
-            
-        Returns:
-            Command list for subprocess
-        """
-        return ['openroad', '-no_splash', '-exit', script_path]
-    
-    def run_subprocess(
-        self, 
-        script_name: str, 
-        env_vars: Optional[Dict[str, str]] = None,
-        timeout: int = 30
-    ) -> subprocess.CompletedProcess:
-        """
-        Run a TCL script with OpenROAD (like TclStep.run_subprocess).
-        
-        Args:
-            script_name: Name of the TCL script in scripts_dir
-            env_vars: Additional environment variables to pass
-            timeout: Timeout in seconds
-            
-        Returns:
-            subprocess.CompletedProcess result
-        """
-        script_path = self.get_script_path(script_name)
-        env = self.prepare_env(env_vars)
-        command = self.get_command(script_path)
-        
-        result = subprocess.run(
-            command,
-            capture_output=True,
-            text=True,
-            timeout=timeout,
-            env=env
-        )
-        
-        return result
+# PyTorch imports
+try:
+    import torch
+    import torch.nn as nn
+except ImportError:
+    print("[ERROR] PyTorch not installed. Install with: pip install torch")
+    sys.exit(1)
+
+# Import our modules
+from timing_parser import parse_timing_report, TimingReportParser
+from discrete_action_space import DiscreteActionSpace, CellLibrary, Cell
 
 
-# ==================== DQN Network ====================
-class DQNetwork(nn.Module):
+# ============================================================================
+# State Extraction
+# ============================================================================
+
+def extract_state_features(
+    timing_data: Dict,
+    actionable_cells: List[Cell],
+    top_k_cells: int = 10
+) -> np.ndarray:
     """
-    Deep Q-Network for cell resizing decisions
+    Extract state features for DQN input.
     
-    Input: State features (timing, power, cell properties)
-    Output: Q-values for each action (resize options)
+    State structure (45-dim vector):
+        - Global metrics (5): WNS, TNS, violations, avg_slack, max_delay
+        - Top-K cell features (10 cells × 4 features each):
+            - Cell delay (normalized)
+            - Cell fanout (normalized)
+            - Cell drive strength (normalized)
+            - Cell slack (normalized)
+    
+    Args:
+        timing_data: Parsed timing report dictionary
+        actionable_cells: List of actionable cells from DiscreteActionSpace
+        top_k_cells: Number of cells to include in state
+        
+    Returns:
+        State vector (numpy array)
     """
-    def __init__(self, state_dim, action_dim, hidden_dim=256):
-        super().__init__()
+    global_metrics = timing_data['global_metrics']
+    paths = timing_data['paths']
+    
+    # === Global Features (5) ===
+    wns = global_metrics['wns']
+    tns = global_metrics['tns']
+    num_violations = global_metrics['num_violations']
+    
+    # Calculate average slack and max delay
+    all_slacks = [p.get('slack', 0) for p in paths]
+    avg_slack = np.mean(all_slacks) if all_slacks else 0
+    
+    max_delay = 0
+    for path in paths:
+        for cell in path.get('cells', []):
+            max_delay = max(max_delay, cell.get('delay', 0))
+    
+    global_features = np.array([
+        wns,
+        tns,
+        num_violations,
+        avg_slack,
+        max_delay
+    ])
+    
+    # === Cell Features (10 cells × 4 features = 40) ===
+    cell_features = []
+    
+    for i in range(top_k_cells):
+        if i < len(actionable_cells):
+            cell = actionable_cells[i]
+            
+            # Normalize features
+            delay_norm = cell.delay / max(max_delay, 1e-6)
+            fanout_norm = cell.fanout / 20.0  # Assume max fanout ~20
+            drive_norm = cell.current_drive_strength / 16.0  # Max drive ~16
+            slack_norm = cell.slack_contribution / abs(wns) if wns != 0 else 0
+            
+            cell_features.extend([
+                delay_norm,
+                fanout_norm,
+                drive_norm,
+                slack_norm
+            ])
+        else:
+            # Padding for cells that don't exist
+            cell_features.extend([0, 0, 0, 0])
+    
+    cell_features = np.array(cell_features)
+    
+    # Concatenate global and cell features
+    state = np.concatenate([global_features, cell_features])
+    
+    return state.astype(np.float32)
+
+
+# ============================================================================
+# DQN Network Definition
+# ============================================================================
+
+class DQNNetwork(nn.Module):
+    """
+    Deep Q-Network for cell resizing decisions.
+    
+    Architecture:
+        Input: State vector (45-dim)
+        Hidden: 128 -> 128 -> 64
+        Output: Q-values for each action (30 actions)
+    """
+    
+    def __init__(self, state_dim: int = 45, action_dim: int = 30, hidden_dim: int = 128):
+        super(DQNNetwork, self).__init__()
+        
         self.network = nn.Sequential(
             nn.Linear(state_dim, hidden_dim),
             nn.ReLU(),
             nn.Dropout(0.2),
+            
             nn.Linear(hidden_dim, hidden_dim),
             nn.ReLU(),
             nn.Dropout(0.2),
+            
             nn.Linear(hidden_dim, hidden_dim // 2),
             nn.ReLU(),
+            
             nn.Linear(hidden_dim // 2, action_dim)
         )
     
     def forward(self, x):
+        """Forward pass through network."""
         return self.network(x)
 
 
-# ==================== Environment ====================
-class CellResizingEnv:
-    """
-    RL Environment for cell resizing
-    
-    State: [wns, tns, power, cell_slack, cell_power, cell_size, ...]
-    Action: Resize cell to different drive strength
-    Reward: Improvement in PPA
-    """
-    
-    def __init__(self, odb_path: str, target_slack: float = 0.0, 
-                 power_weight: float = 0.3, work_dir: str = None):
-        self.target_slack = target_slack
-        self.power_weight = power_weight
-        self.odb_path = os.path.abspath(odb_path)
-        
-        # Create working directory for output files
-        self.work_dir = work_dir or tempfile.mkdtemp(prefix="cell_resize_env_")
-        os.makedirs(self.work_dir, exist_ok=True)
-        
-        # Directory containing TCL scripts
-        scripts_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "tcl")
-        
-        # Initialize TCL script runner (like TclStep)
-        self.tcl = TclScriptRunner(scripts_dir, self.work_dir, self.odb_path)
-        
-        # Store timing metrics cache
-        self._timing_cache = {}
-        self._cache_valid = False
-        
-        # For now, use dummy data - will populate via OpenROAD commands
-        self.resizable_cells = []
-        
-        # Initial metrics - will be computed
-        self._update_timing_metrics()
-        self.initial_wns = self._timing_cache.get('wns', 0.0)
-        self.initial_tns = self._timing_cache.get('tns', 0.0)
-        self.initial_power = self._timing_cache.get('power', 0.0)
-        
-        print(f"[ENV] Initial WNS: {self.initial_wns:.4f} ns")
-        print(f"[ENV] Initial TNS: {self.initial_tns:.4f} ns")
-        print(f"[ENV] Initial Power: {self.initial_power:.6f} W")
-        print(f"[ENV] Resizable cells: {len(self.resizable_cells)}")
-        print(f"[ENV] Work directory: {self.work_dir}")
-        print(f"[ENV] Scripts directory: {self.tcl.scripts_dir}")
-    
-    def _update_timing_metrics(self):
-        """
-        Update timing metrics by running TCL script.
-        Uses TclScriptRunner following the TclStep pattern.
-        """
-        metrics_file = os.path.join(self.work_dir, "timing_metrics.json")
-        
-        try:
-            # Run TCL script using the runner (like TclStep.run_subprocess)
-            result = self.tcl.run_subprocess(
-                'get_timing_metrics.tcl',
-                {'METRICS_FILE': metrics_file}
-            )
-            
-            if result.returncode == 0 and os.path.exists(metrics_file):
-                with open(metrics_file, 'r') as f:
-                    self._timing_cache = json.load(f)
-                self._cache_valid = True
-            else:
-                print(f"[WARNING] Timing metrics script failed:")
-                print(f"  stdout: {result.stdout}")
-                print(f"  stderr: {result.stderr}")
-                self._timing_cache = {'wns': 0.0, 'tns': 0.0, 'power': 0.0}
-                self._cache_valid = False
-        except Exception as e:
-            print(f"[ERROR] Failed to get timing metrics: {e}")
-            self._timing_cache = {'wns': 0.0, 'tns': 0.0, 'power': 0.0}
-            self._cache_valid = False
-    
-    def _find_resizable_cells(self) -> List[Dict]:
-        """
-        Find all cells that can be resized
-        Returns list of: {instance, current_master, alternatives}
-        """
-        resizable = []
-        
-        for inst in self.block.getInsts():
-            master = inst.getMaster()
-            master_name = master.getName()
-            
-            # Get cell library and find variants
-            lib = master.getLib()
-            
-            # Pattern: sky130_fd_sc_hd__inv_2 -> find inv_1, inv_4, etc.
-            alternatives = self._find_cell_variants(master_name, lib)
-            
-            if len(alternatives) > 1:
-                resizable.append({
-                    'instance': inst,
-                    'current_master': master,
-                    'alternatives': alternatives,
-                    'current_idx': alternatives.index(master)
-                })
-        
-        return resizable
-    
-    def _find_cell_variants(self, cell_name: str, lib) -> List:
-        """
-        Find all drive strength variants of a cell
-        e.g., buf_1, buf_2, buf_4, buf_8, buf_16
-        """
-        import re
-        
-        # Extract base name (e.g., sky130_fd_sc_hd__inv)
-        match = re.match(r'(.+)_(\d+)$', cell_name)
-        if not match:
-            return [lib.findMaster(cell_name)]
-        
-        base_name = match.group(1)
-        variants = []
-        
-        # Common drive strengths
-        for strength in [1, 2, 4, 6, 8, 12, 16]:
-            variant_name = f"{base_name}_{strength}"
-            master = lib.findMaster(variant_name)
-            if master:
-                variants.append(master)
-        
-        return variants if variants else [lib.findMaster(cell_name)]
-    
-    def _get_wns(self) -> float:
-        """Get Worst Negative Slack using dedicated TCL script"""
-        if not self._cache_valid:
-            self._update_timing_metrics()
-        return self._timing_cache.get('wns', 0.0)
-    
-    def _get_tns(self) -> float:
-        """Get Total Negative Slack using dedicated TCL script"""
-        if not self._cache_valid:
-            self._update_timing_metrics()
-        return self._timing_cache.get('tns', 0.0)
-    
-    def _get_power(self) -> float:
-        """Get total power consumption using dedicated TCL script"""
-        if not self._cache_valid:
-            self._update_timing_metrics()
-        return self._timing_cache.get('power', 0.0)
-    
-    def get_cell_features(self, cell_info: Dict) -> np.ndarray:
-        """
-        Extract features for a specific cell
-        Returns: [slack, power, drive_strength_ratio, fanout, ...]
-        """
-        inst = cell_info['instance']
-        
-        # Get cell slack (worst pin slack)
-        slack = self._get_cell_slack(inst)
-        
-        # Get cell power
-        power = self._get_cell_power(inst)
-        
-        # Get drive strength ratio
-        current_idx = cell_info['current_idx']
-        max_idx = len(cell_info['alternatives']) - 1
-        drive_ratio = current_idx / max(max_idx, 1)
-        
-        # Get fanout
-        fanout = self._get_fanout(inst)
-        
-        # Get cell area
-        area = self._get_cell_area(inst)
-        
-        return np.array([slack, power, drive_ratio, fanout, area])
-    
-    def get_state(self) -> np.ndarray:
-        """
-        Get current design state
-        Returns: [wns, tns, power, normalized_wns, normalized_tns, ...]
-        """
-        wns = self._get_wns()
-        tns = self._get_tns()
-        power = self._get_power()
-        
-        # Normalize
-        norm_wns = wns / abs(self.initial_wns) if self.initial_wns != 0 else 0
-        norm_tns = tns / abs(self.initial_tns) if self.initial_tns != 0 else 0
-        norm_power = power / self.initial_power if self.initial_power != 0 else 1
-        
-        # Count violations
-        setup_vios = self._count_setup_violations()
-        hold_vios = self._count_hold_violations()
-        
-        return np.array([
-            wns, tns, power,
-            norm_wns, norm_tns, norm_power,
-            setup_vios, hold_vios
-        ])
-    
-    def _get_cell_slack(self, inst) -> float:
-        """Get worst slack through this cell"""
-        sta = self.sta
-        pins = inst.getITerms()
-        worst_slack = float('inf')
-        
-        for pin in pins:
-            slack = sta.getPinSlack(pin)
-            if slack < worst_slack:
-                worst_slack = slack
-        
-        return float(worst_slack)
-    
-    def _get_cell_power(self, inst) -> float:
-        """Get power consumption of this cell"""
-        # Simplified: use cell area as proxy
-        master = inst.getMaster()
-        return float(master.getArea())
-    
-    def _get_fanout(self, inst) -> int:
-        """Get fanout count"""
-        count = 0
-        for term in inst.getITerms():
-            if term.isOutputSignal():
-                net = term.getNet()
-                if net:
-                    count += len(list(net.getITerms()))
-        return count
-    
-    def _get_cell_area(self, inst) -> float:
-        """Get cell area"""
-        return float(inst.getMaster().getArea())
-    
-    def _count_setup_violations(self) -> int:
-        """Count setup timing violations"""
-        return sum(1 for _ in self.resizable_cells if self._get_cell_slack(_['instance']) < 0)
-    
-    def _count_hold_violations(self) -> int:
-        """Count hold violations (simplified)"""
-        return 0  # Would need min path analysis
-    
-    def step(self, cell_idx: int, action: int) -> Tuple[np.ndarray, float, bool]:
-        """
-        Take action: resize cell_idx to action (alternative index)
-        Returns: (next_state, reward, done)
-        """
-        if cell_idx >= len(self.resizable_cells):
-            return self.get_state(), -10, False
-        
-        cell_info = self.resizable_cells[cell_idx]
-        alternatives = cell_info['alternatives']
-        
-        if action >= len(alternatives):
-            return self.get_state(), -5, False
-        
-        # Perform resize
-        inst = cell_info['instance']
-        new_master = alternatives[action]
-        old_master = inst.getMaster()
-        
-        if old_master == new_master:
-            return self.get_state(), 0, False  # No change
-        
-        # Swap cell
-        inst.swapMaster(new_master)
-        cell_info['current_idx'] = action
-        
-        # Update timing (incremental STA)
-        self.sta.updateTiming()
-        
-        # Calculate reward
-        new_wns = self._get_wns()
-        new_tns = self._get_tns()
-        new_power = self._get_power()
-        
-        # Reward function: balance timing improvement and power
-        timing_reward = (self.initial_wns - new_wns) + (self.initial_tns - new_tns) / 10
-        power_penalty = (new_power - self.initial_power) / self.initial_power
-        
-        reward = timing_reward - self.power_weight * power_penalty
-        
-        # Check if done (converged)
-        done = new_wns >= self.target_slack or reward < -1.0
-        
-        # Update baseline
-        self.initial_wns = new_wns
-        self.initial_tns = new_tns
-        self.initial_power = new_power
-        
-        return self.get_state(), reward, done
-    
-    def save(self, output_path: str):
-        """
-        Save modified database using TCL script runner.
-        """
-        try:
-            # Use the TCL runner (like TclStep)
-            result = self.tcl.run_subprocess(
-                'save_db.tcl',
-                {'OUTPUT_PATH': os.path.abspath(output_path)}
-            )
-            
-            if result.returncode == 0:
-                print(f"[ENV] Saved database to {output_path}")
-                # Update the current ODB path
-                self.odb_path = os.path.abspath(output_path)
-                self.tcl.odb_path = self.odb_path
-            else:
-                print(f"[ERROR] Failed to save database:")
-                print(f"  stderr: {result.stderr}")
-        except Exception as e:
-            print(f"[ERROR] Failed to save database: {e}")
+# ============================================================================
+# DQN Agent
+# ============================================================================
 
-
-# ==================== DQN Agent ====================
-class DQNAgent:
+class SimpleDQNAgent:
     """
-    DQN Agent for cell resizing
+    Simplified DQN agent for inference only.
+    Training is done separately offline.
     """
     
-    def __init__(self, state_dim, action_dim, learning_rate=1e-4):
+    def __init__(
+        self,
+        model_path: Optional[str] = None,
+        state_dim: int = 45,
+        action_dim: int = 30,
+        epsilon: float = 0.0
+    ):
+        """
+        Initialize DQN agent.
+        
+        Args:
+            model_path: Path to trained model weights (.pth file)
+            state_dim: State vector dimension
+            action_dim: Number of discrete actions
+            epsilon: Exploration rate (0.0 for pure exploitation)
+        """
         self.state_dim = state_dim
         self.action_dim = action_dim
+        self.epsilon = epsilon
         
-        self.q_network = DQNetwork(state_dim, action_dim)
-        self.target_network = DQNetwork(state_dim, action_dim)
-        self.target_network.load_state_dict(self.q_network.state_dict())
+        # Create network
+        self.q_network = DQNNetwork(state_dim, action_dim)
         
-        self.optimizer = torch.optim.Adam(self.q_network.parameters(), lr=learning_rate)
-        self.memory = deque(maxlen=10000)
+        # Load trained weights if provided
+        if model_path and os.path.exists(model_path):
+            self.load_model(model_path)
+            print(f"[AGENT] Loaded model from: {model_path}")
+        else:
+            print(f"[AGENT] No model loaded - using random policy")
+            if model_path:
+                print(f"[AGENT] Model file not found: {model_path}")
         
-        self.epsilon = 1.0  # Exploration rate
-        self.epsilon_min = 0.01
-        self.epsilon_decay = 0.995
-        self.gamma = 0.95  # Discount factor
+        self.q_network.eval()  # Set to evaluation mode
     
-    def select_action(self, state, training=False):
-        """Epsilon-greedy action selection"""
-        if training and np.random.random() < self.epsilon:
-            return np.random.randint(self.action_dim)
+    def select_action(
+        self,
+        state: np.ndarray,
+        valid_actions_mask: Optional[np.ndarray] = None
+    ) -> int:
+        """
+        Select action using epsilon-greedy policy.
         
+        Args:
+            state: State vector (numpy array)
+            valid_actions_mask: Boolean mask of valid actions (optional)
+            
+        Returns:
+            Action index (0 to action_dim-1)
+        """
+        # Epsilon-greedy exploration
+        if np.random.random() < self.epsilon:
+            # Random action
+            if valid_actions_mask is not None:
+                valid_indices = np.where(valid_actions_mask)[0]
+                return np.random.choice(valid_indices)
+            else:
+                return np.random.randint(self.action_dim)
+        
+        # Greedy action selection
+        with torch.no_grad():
+            state_tensor = torch.FloatTensor(state).unsqueeze(0)  # Add batch dim
+            q_values = self.q_network(state_tensor)
+            q_values = q_values.squeeze(0).numpy()  # Remove batch dim
+            
+            # Mask invalid actions
+            if valid_actions_mask is not None:
+                q_values[~valid_actions_mask] = -np.inf
+            
+            action = np.argmax(q_values)
+        
+        return int(action)
+    
+    def get_q_values(self, state: np.ndarray) -> np.ndarray:
+        """
+        Get Q-values for all actions.
+        
+        Args:
+            state: State vector
+            
+        Returns:
+            Q-values array (action_dim,)
+        """
         with torch.no_grad():
             state_tensor = torch.FloatTensor(state).unsqueeze(0)
             q_values = self.q_network(state_tensor)
-            return q_values.argmax().item()
+            return q_values.squeeze(0).numpy()
     
-    def remember(self, state, action, reward, next_state, done):
-        """Store experience"""
-        self.memory.append((state, action, reward, next_state, done))
-    
-    def replay(self, batch_size=32):
-        if len(self.memory) < batch_size:
-            return
+    def load_model(self, path: str):
+        """Load model weights from file."""
+        checkpoint = torch.load(path, map_location='cpu')
         
-        batch = np.random.choice(len(self.memory), batch_size, replace=False)
+        # Handle different checkpoint formats
+        if isinstance(checkpoint, dict):
+            if 'q_network' in checkpoint:
+                self.q_network.load_state_dict(checkpoint['q_network'])
+            elif 'model_state_dict' in checkpoint:
+                self.q_network.load_state_dict(checkpoint['model_state_dict'])
+            else:
+                self.q_network.load_state_dict(checkpoint)
+        else:
+            self.q_network.load_state_dict(checkpoint)
         
-        for idx in batch:
-            state, action, reward, next_state, done = self.memory[idx]
-            
-            state_tensor = torch.FloatTensor(state).unsqueeze(0)
-            next_state_tensor = torch.FloatTensor(next_state).unsqueeze(0)
-            
-            current_q = self.q_network(state_tensor)[0, action]
-            
-            with torch.no_grad():
-                next_q = self.target_network(next_state_tensor).max()
-                target_q = reward + (self.gamma * next_q * (1 - done))
-            
-            loss = nn.MSELoss()(current_q, target_q)
-            
-            self.optimizer.zero_grad()
-            loss.backward()
-            self.optimizer.step()
-        
-        # Decay epsilon
-        self.epsilon = max(self.epsilon_min, self.epsilon * self.epsilon_decay)
-    
-    def update_target_network(self):
-        """Sync target network"""
-        self.target_network.load_state_dict(self.q_network.state_dict())
-    
-    def save(self, path):
-        """Save model"""
-        torch.save({
-            'q_network': self.q_network.state_dict(),
-            'target_network': self.target_network.state_dict(),
-            'optimizer': self.optimizer.state_dict(),
-            'epsilon': self.epsilon
-        }, path)
-    
-    def load(self, path):
-        """Load model"""
-        checkpoint = torch.load(path)
-        self.q_network.load_state_dict(checkpoint['q_network'])
-        self.target_network.load_state_dict(checkpoint['target_network'])
-        self.optimizer.load_state_dict(checkpoint['optimizer'])
-        self.epsilon = checkpoint['epsilon']
+        print(f"[AGENT] Model loaded successfully")
 
 
-# ==================== Main ====================
+# ============================================================================
+# Output Generation
+# ============================================================================
+
+def write_actions_file(
+    output_path: str,
+    resizes: Dict[str, Tuple[str, str]],
+    iteration: int,
+    action_idx: int,
+    state_features: np.ndarray,
+    timing_metrics: Dict
+):
+    """
+    Write actions to file for TCL to read.
+    
+    Format:
+        # Iteration: 1
+        # Action: 5
+        # WNS: -3.93
+        # TNS: -85.47
+        instance_name new_cell_type
+        instance_name new_cell_type
+        ...
+    
+    Args:
+        output_path: Path to output file
+        resizes: Dictionary mapping instance -> (old_cell, new_cell)
+        iteration: Current iteration number
+        action_idx: Selected action index
+        state_features: State vector
+        timing_metrics: Timing metrics dict
+    """
+    # Create folder if not exists
+    os.makedirs(os.path.dirname(output_path), exist_ok=True)
+    with open(output_path, 'w') as f:
+        # Write metadata as comments
+        f.write(f"# Iteration: {iteration}\n")
+        f.write(f"# Action: {action_idx}\n")
+        f.write(f"# WNS: {timing_metrics.get('wns', 0):.4f}\n")
+        f.write(f"# TNS: {timing_metrics.get('tns', 0):.4f}\n")
+        f.write(f"# Violations: {timing_metrics.get('num_violations', 0)}\n")
+        f.write(f"# State_dim: {len(state_features)}\n")
+        f.write("\n")
+        
+        # Write resize commands
+        if resizes:
+            for instance_name, (old_cell, new_cell) in resizes.items():
+                f.write(f"{instance_name} {new_cell}\n")
+        else:
+            f.write("# No actions\n")
+    
+    print(f"[AGENT] Wrote {len(resizes)} resize commands to: {output_path}")
+
+
+def write_state_log(
+    log_path: str,
+    iteration: int,
+    state: np.ndarray,
+    q_values: np.ndarray,
+    action: int,
+    timing_data: Dict
+):
+    """
+    Write detailed state information for debugging.
+    
+    Args:
+        log_path: Path to log file
+        iteration: Current iteration
+        state: State vector
+        q_values: Q-values for all actions
+        action: Selected action
+        timing_data: Full timing data dict
+    """
+    log_entry = {
+        'iteration': iteration,
+        'state': state.tolist(),
+        'q_values': q_values.tolist(),
+        'selected_action': action,
+        'selected_q_value': float(q_values[action]),
+        'global_metrics': timing_data['global_metrics'],
+        'num_paths': len(timing_data['paths'])
+    }
+    
+    # Append to log file
+    with open(log_path, 'a') as f:
+        f.write(json.dumps(log_entry) + '\n')
+
+
+# ============================================================================
+# Main Function
+# ============================================================================
+
 def main():
-    parser = argparse.ArgumentParser()
-    parser.add_argument('--odb', required=True, help='Input ODB file')
-    parser.add_argument('--work-dir', help='Working directory for TCL scripts and outputs')
-    parser.add_argument('--model', help='Pre-trained model path')
-    parser.add_argument('--max-iterations', type=int, default=50)
-    parser.add_argument('--target-slack', type=float, default=0.0)
-    parser.add_argument('--power-weight', type=float, default=0.3)
-    parser.add_argument('--training', type=int, default=0)
-    args = parser.parse_args()
+    """Main entry point for DQN agent."""
     
-    # Initialize environment
-    env = CellResizingEnv(
-        args.odb,
-        target_slack=args.target_slack,
-        power_weight=args.power_weight,
-        work_dir=args.work_dir
+    parser = argparse.ArgumentParser(
+        description='DQN Agent for Cell Resizing',
+        formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
     
-    # Initialize agent
-    state_dim = 8  # From get_state()
-    action_dim = 10  # Max alternatives (adjust based on your PDK)
-    agent = DQNAgent(state_dim, action_dim)
+    # Required arguments
+    parser.add_argument(
+        '--timing-report',
+        required=True,
+        help='Path to timing report file (.rpt)'
+    )
+    parser.add_argument(
+        '--output-actions',
+        required=True,
+        help='Path to output actions file (.txt)'
+    )
     
-    # Load pre-trained model if available
-    if args.model and os.path.exists(args.model):
-        agent.load(args.model)
-        print(f"[AGENT] Loaded model from {args.model}")
+    # Optional arguments
+    parser.add_argument(
+        '--model',
+        default=None,
+        help='Path to trained DQN model (.pth)'
+    )
+    parser.add_argument(
+        '--iteration',
+        type=int,
+        default=1,
+        help='Current iteration number'
+    )
+    parser.add_argument(
+        '--top-k-cells',
+        type=int,
+        default=10,
+        help='Number of top critical cells to consider'
+    )
+    parser.add_argument(
+        '--worst-n-paths',
+        type=int,
+        default=5,
+        help='Number of worst paths to analyze'
+    )
+    parser.add_argument(
+        '--epsilon',
+        type=float,
+        default=0.0,
+        help='Exploration rate (0.0 for pure exploitation)'
+    )
+    parser.add_argument(
+        '--state-log',
+        default=None,
+        help='Path to state log file (optional, for debugging)'
+    )
+    parser.add_argument(
+        '--verbose',
+        action='store_true',
+        help='Print verbose debugging information'
+    )
     
-    training_mode = bool(args.training)
+    args = parser.parse_args()
     
-    # Run optimization loop
-    state = env.get_state()
-    total_reward = 0
+    # ========================================================================
+    # Step 1: Parse Timing Report
+    # ========================================================================
     
-    for iteration in range(args.max_iterations):
-        # Select cell to resize (prioritize critical cells)
-        cell_idx = np.random.randint(len(env.resizable_cells))
-        
-        # Get action from agent
-        cell_features = env.get_cell_features(env.resizable_cells[cell_idx])
-        combined_state = np.concatenate([state, cell_features])
-        
-        action = agent.select_action(combined_state, training=training_mode)
-        
-        # Take step
-        next_state, reward, done = env.step(cell_idx, action)
-        total_reward += reward
-        
-        # Store experience if training
-        if training_mode:
-            agent.remember(state, action, reward, next_state, done)
-            agent.replay()
-            
-            if iteration % 10 == 0:
-                agent.update_target_network()
-        
-        print(f"[ITER {iteration}] WNS: {next_state[0]:.4f} ns, "
-              f"TNS: {next_state[1]:.4f} ns, "
-              f"Power: {next_state[2]:.6f} W, "
-              f"Reward: {reward:.4f}")
-        
-        state = next_state
-        
-        if done:
-            print(f"[DONE] Converged at iteration {iteration}")
-            break
+    print("="*70)
+    print(f"DQN Agent - Iteration {args.iteration}")
+    print("="*70)
     
-    # Save results
-    env.save(args.odb)
+    if not os.path.exists(args.timing_report):
+        print(f"[ERROR] Timing report not found: {args.timing_report}")
+        sys.exit(1)
     
-    if training_mode and args.model:
-        agent.save(args.model)
-        print(f"[AGENT] Saved model to {args.model}")
+    print(f"[STEP 1] Parsing timing report: {args.timing_report}")
     
-    print(f"[RESULT] Total reward: {total_reward:.4f}")
-    print(f"[RESULT] Final WNS: {state[0]:.4f} ns")
-    print(f"[RESULT] Final TNS: {state[1]:.4f} ns")
-    print(f"[RESULT] Final Power: {state[2]:.6f} W")
+    try:
+        timing_data = parse_timing_report(args.timing_report)
+        metrics = timing_data['global_metrics']
+        
+        print(f"  WNS: {metrics['wns']:.4f} ns")
+        print(f"  TNS: {metrics['tns']:.4f} ns")
+        print(f"  Violations: {metrics['num_violations']}")
+        print(f"  Paths: {metrics['num_paths']}")
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to parse timing report: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+    
+    # ========================================================================
+    # Step 2: Get Actionable Cells
+    # ========================================================================
+    
+    print(f"\n[STEP 2] Identifying actionable cells (top-{args.top_k_cells})")
+    
+    try:
+        action_space = DiscreteActionSpace(
+            mode='single',
+            top_k_cells=args.top_k_cells,
+            library=CellLibrary()
+        )
+        
+        actionable_cells = action_space.get_actionable_cells(
+            timing_data,
+            worst_n_paths=args.worst_n_paths
+        )
+        
+        print(f"  Found {len(actionable_cells)} actionable cells")
+        
+        if args.verbose and actionable_cells:
+            print(f"\n  Top 5 critical cells:")
+            # print(actionable_cells[0].__dict__)
+            for i, cell in enumerate(actionable_cells[:5]):
+                print(f"    {i+1}. {cell.instance_name}: {cell.cell_type}")
+                print(f"       Drive: {cell.current_drive_strength}, "
+                      f"Fanout: {cell.fanout}, "
+                      f"Slack: {cell.slack_contribution:.4f}")
+        
+        if not actionable_cells:
+            print(f"[WARNING] No actionable cells found - design may be optimal")
+            # Write empty actions file
+            write_actions_file(
+                args.output_actions,
+                {},
+                args.iteration,
+                -1,
+                np.zeros(45),
+                metrics
+            )
+            sys.exit(0)
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to get actionable cells: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+    
+    # ========================================================================
+    # Step 3: Extract State Features
+    # ========================================================================
+    
+    print(f"\n[STEP 3] Extracting state features")
+    
+    try:
+        state = extract_state_features(
+            timing_data,
+            actionable_cells,
+            top_k_cells=args.top_k_cells
+        )
+        
+        print(f"  State shape: {state.shape}")
+        print(f"  State range: [{state.min():.4f}, {state.max():.4f}]")
+        
+        if args.verbose:
+            print(f"  Global features: {state[:5]}")
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to extract state: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+    
+    # ========================================================================
+    # Step 4: Load DQN and Select Action
+    # ========================================================================
+    
+    print(f"\n[STEP 4] DQN action selection")
+    
+    try:
+        # Create agent
+        agent = SimpleDQNAgent(
+            model_path=args.model,
+            state_dim=len(state),
+            action_dim=action_space.n_actions,
+            epsilon=args.epsilon
+        )
+        
+        # Get Q-values for debugging
+        q_values = agent.get_q_values(state)
+        
+        # Select action
+        action_idx = agent.select_action(state)
+        
+        print(f"  Action space size: {action_space.n_actions}")
+        print(f"  Selected action: {action_idx}")
+        print(f"  Q-value: {q_values[action_idx]:.4f}")
+        print(f"  Exploration rate: {args.epsilon}")
+        
+        if args.verbose:
+            print(f"\n  Top 5 Q-values:")
+            top_actions = np.argsort(q_values)[-5:][::-1]
+            for rank, act in enumerate(top_actions):
+                print(f"    {rank+1}. Action {act}: Q={q_values[act]:.4f}")
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to select action: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+    
+    # ========================================================================
+    # Step 5: Decode Action to Resize Commands
+    # ========================================================================
+    
+    print(f"\n[STEP 5] Decoding action to resize commands")
+    
+    try:
+        resizes = action_space.apply_action(action_idx, actionable_cells)
+        
+        print(f"  Generated {len(resizes)} resize commands")
+        
+        if args.verbose and resizes:
+            print(f"\n  Resize commands:")
+            for instance, (old_cell, new_cell) in resizes.items():
+                print(f"    {instance}:")
+                print(f"      {old_cell} -> {new_cell}")
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to decode action: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+    
+    # ========================================================================
+    # Step 6: Write Output Files
+    # ========================================================================
+    
+    print(f"\n[STEP 6] Writing output files")
+    
+    try:
+        # Write actions file for TCL
+        write_actions_file(
+            args.output_actions,
+            resizes,
+            args.iteration,
+            action_idx,
+            state,
+            metrics
+        )
+        
+        # Write state log if requested
+        if args.state_log:
+            write_state_log(
+                args.state_log,
+                args.iteration,
+                state,
+                q_values,
+                action_idx,
+                timing_data
+            )
+            print(f"  State log: {args.state_log}")
+        
+    except Exception as e:
+        print(f"[ERROR] Failed to write output: {e}")
+        import traceback
+        traceback.print_exc()
+        sys.exit(1)
+    
+    # ========================================================================
+    # Done
+    # ========================================================================
+    
+    print("\n" + "="*70)
+    print(f"Agent completed successfully - Iteration {args.iteration}")
+    print("="*70)
 
 
 if __name__ == '__main__':
