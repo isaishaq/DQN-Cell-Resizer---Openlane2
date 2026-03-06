@@ -3,6 +3,7 @@
 Quick test script for DQN Resizer
 """
 import os
+import sys
 from openlane.config import Config
 from openlane.state import State
 from dqn_resizer_step import DQNResizer
@@ -41,10 +42,24 @@ state_in = State.loads(open(sta_state_path, encoding="utf8").read())
 output_dir = f"{run_dir}/74-dqn-resizer-test"
 os.makedirs(output_dir, exist_ok=True)
 
+# Print whats inside config
+print("\n=== Config Variables ===")# 2. Access specific config variables
+config = config.copy(
+    CLOCK_PERIOD=16,
+    DQN_AGENT_SCRIPT="/home/isaishaq/openlane2/designs/picorv_test/scripts/dqn_agent.py",
+    DQN_MODEL_PATH="/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test/model/dqn_resizer.pth",
+    )
+print(f"Clock period: {config['CLOCK_PERIOD']}")
+print(f"Design name: {config['DESIGN_NAME']}")
+print(f"DQN_AGENT_SCRIPT: {config.get('DQN_AGENT_SCRIPT', 'Not set')}")
+
+# sys.exit(0)
+
 dqn_step = DQNResizer(
     config=config,
     state_in=state_in,
 )
+
 
 print("Running DQNResizer-OpenROAD Step")
 state_out = dqn_step.start(step_dir=output_dir)

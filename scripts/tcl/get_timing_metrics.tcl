@@ -11,6 +11,7 @@
 # puts "\[INFO\] Loading ODB"
 # read_current_odb
 
+set sta_report_default_digits 6
 if {$env(STEP_DIR) eq ""} {
     puts "\[ERROR\] STEP_DIR environment variable is not set. Please set it to the step directory containing the ODB and SPEF files."
     exit 1
@@ -36,6 +37,11 @@ foreach corner [sta::corners] {
 
     set folder_path $env(STEP_DIR)/reports/iter${env(CURRENT_ITERATION)}_$corner_name
     file mkdir $folder_path
+    
+    # If file exists, remove all files inside this folder to avoid appending to old data
+    if {[file exists $folder_path]} {
+        file delete -force [glob -nocomplain $folder_path/*]
+    }
 
     set clocks [sta::sort_by_name [sta::all_clocks]]
 

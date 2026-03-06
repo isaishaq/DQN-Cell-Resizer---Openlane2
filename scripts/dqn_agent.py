@@ -370,7 +370,7 @@ def write_state_log(
 
 def main():
     """Main entry point for DQN agent."""
-    
+    print("Python executed") 
     parser = argparse.ArgumentParser(
         description='DQN Agent for Cell Resizing',
         formatter_class=argparse.ArgumentDefaultsHelpFormatter

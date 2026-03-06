@@ -53,6 +53,12 @@ class DQNResizer(OpenROADStep):
             "Enable training mode (exploration + model updates)",
             default=True,
         ),
+        Variable(
+            "DQN_AGENT_SCRIPT",
+            str,
+            "Path to the Python DQN agent script",
+            default="scripts/dqn_agent.py",
+        ),
     ]
     
     def get_script_path(self):
@@ -76,9 +82,10 @@ class DQNResizer(OpenROADStep):
         env["DQN_TRAINING_MODE"] = "1" if self.config["DQN_TRAINING_MODE"] else "0"
         
         # Point to Python DQN agent script
-        env["DQN_AGENT_SCRIPT"] = os.path.join(
-            os.path.dirname(__file__),
-            "dqn_agent.py"
-        )
+        env["DQN_AGENT_SCRIPT"] = str(self.config["DQN_AGENT_SCRIPT"]) or ""
+        # env["DQN_AGENT_SCRIPT"] = os.path.join(
+        #     os.path.dirname(__file__),
+        #     "dqn_agent.py"
+        # )
         
         return super().run(state_in, env=env, **kwargs)

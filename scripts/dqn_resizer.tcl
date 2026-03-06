@@ -6,9 +6,9 @@ set ::env(RSZ_DONT_TOUCH_RX) False
 set ::env(DPL_CELL_PADDING) 2
 set ::env(PL_MAX_DISPLACEMENT_X) 20
 set ::env(PL_MAX_DISPLACEMENT_Y) 10
-# set ::env(RSZ_CORNER_0) "nom_tt_025C_1v80 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
-# set ::env(RSZ_CORNER_1) "nom_ss_100C_1v60 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
-# set ::env(RSZ_CORNER_2) "nom_ff_n40C_1v95 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
+set ::env(RSZ_CORNER_0) "nom_tt_025C_1v80 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib"
+set ::env(RSZ_CORNER_1) "nom_ss_100C_1v60 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib"
+set ::env(RSZ_CORNER_2) "nom_ff_n40C_1v95 /home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib"
 
 
 # Utils
@@ -18,10 +18,11 @@ source $::env(SCRIPTS_DIR)/openroad/common/io.tcl
 source $::env(SCRIPTS_DIR)/openroad/common/resizer.tcl
 
 # SDC overrides
-set ::env(CLOCK_PERIOD) 16
+# set ::env(CLOCK_PERIOD) 16
+# set ::env(CLOCK_UNCERTAINTY) 4.0
 
 # DQN Paths
-set ::env(DQN_MODEL_PATH) "$::env(STEP_DIR)/model/dqn_model.pth"
+# set ::env(DQN_MODEL_PATH) "$::env(STEP_DIR)/model/dqn_model.pth"
 if {![info exists ::env(DQN_AGENT_SCRIPT)]} {
     set ::env(DQN_AGENT_SCRIPT) "/home/isaishaq/openlane2/designs/picorv_test/scripts/dqn_agent.py"
 }
@@ -37,7 +38,6 @@ load_rsz_corners
 puts "\[INFO\] Loading ODB"
 read_current_odb
 
-# puts "SDC file -> $::env(_TCL_ENV_IN)"
 
 set_propagated_clock [all_clocks]
 set_dont_touch_objects
@@ -68,14 +68,18 @@ for {set iter 1} {$iter <= $dqn_max_iters} {incr iter} {
     set model_file "$::env(DQN_MODEL_PATH)"
     set report_file "$::env(REPORT_FOLDER)/max.rpt"
     
+    puts "\[INFO\] Running DQN agent: $::env(DQN_AGENT_SCRIPT)"
     exec python3 $::env(DQN_AGENT_SCRIPT) \
         --timing-report $report_file \
         --output-actions $actions_file \
         --model $model_file \
         --iteration $iter \
         --verbose \
-        --epsilon 0.1
+        --state-log "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test/logs/state.log"  \
+        --epsilon 0.1 \
+        >@ stdout 2>@ stderr
     
+
     # Read and apply actions
     puts "\[INFO\] Applying DQN actions from $actions_file"
     set num_resizes 0
@@ -121,10 +125,9 @@ for {set iter 1} {$iter <= $dqn_max_iters} {incr iter} {
     
     # Update timing after resizing
     estimate_parasitics -global_routing
-    
-    # Check convergence
-    set wns [sta::worst_slack -max]
-    set tns [sta::total_negative_slack -max]
+
+    set tns [total_negative_slack -corner $corner_name -max]
+    set wns [worst_slack -corner $corner_name -max]
     
     puts "\[INFO\] Iteration $iter complete: WNS=$wns, TNS=$tns"
     
@@ -135,10 +138,10 @@ for {set iter 1} {$iter <= $dqn_max_iters} {incr iter} {
     }
     
     # Break if no actions taken
-    if {$num_resizes == 0} {
-        puts "\[INFO\] No more actions available - converged"
-        break
-    }
+    # if {$num_resizes == 0} {
+    #     puts "\[INFO\] No more actions available - converged"
+    #     break
+    # }
 
 }
 
