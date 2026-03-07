@@ -23,10 +23,22 @@ source $::env(SCRIPTS_DIR)/openroad/common/resizer.tcl
 
 # DQN Paths
 # set ::env(DQN_MODEL_PATH) "$::env(STEP_DIR)/model/dqn_model.pth"
-if {![info exists ::env(DQN_AGENT_SCRIPT)]} {
-    set ::env(DQN_AGENT_SCRIPT) "/home/isaishaq/openlane2/designs/picorv_test/scripts/dqn_agent.py"
-}
+# if {![info exists ::env(DQN_AGENT_SCRIPT)]} {
+#     set ::env(DQN_AGENT_SCRIPT) "/home/isaishaq/openlane2/designs/picorv_test/scripts/dqn_agent.py"
+# } elseif {![info exists ::env(HEURISTIC_AGENT_SCRIPT)]} {
+#     set ::env(HEURISTIC_AGENT_SCRIPT) "/home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py"
+# }
 
+# Agent selection: DQN if model exists, else heuristic
+if {[file exists $::env(DQN_AGENT_SCRIPT)]} {
+    set ::env(ACTIVE_AGENT) "dqn"
+    set ::env(AGENT_SCRIPT) $::env(DQN_AGENT_SCRIPT)
+    puts "\[INFO\] Using DQN agent with trained model: $::env(DQN_MODEL_PATH)"
+} else {
+    set ::env(ACTIVE_AGENT) "heuristic"
+    set ::env(AGENT_SCRIPT) $::env(HEURISTIC_AGENT_SCRIPT)
+    puts "\[INFO\] No trained model found - using heuristic agent"
+}
 # Create output directories
 file mkdir "$::env(STEP_DIR)/reports"
 file mkdir "$::env(STEP_DIR)/actions"
@@ -48,10 +60,15 @@ estimate_parasitics -global_routing
 source $::env(SCRIPTS_DIR)/openroad/common/set_rc.tcl
 
 
-puts "\[INFO\] Starting DQN-based cell resizing optimization..."
+puts "\[INFO\] Starting cell resizing optimization..."
+puts "  Agent: $::env(ACTIVE_AGENT)"
 puts "  Max iterations: [expr {[info exists ::env(DQN_MAX_ITERATIONS)] ? $::env(DQN_MAX_ITERATIONS) : 50}]"
 puts "  Target WNS: 0.0 ns"
-puts "  Model: $::env(DQN_MODEL_PATH)"
+if {$::env(ACTIVE_AGENT) eq "dqn"} {
+    puts "  Model: $::env(DQN_MODEL_PATH)"
+} else {
+    puts "  Strategy: balanced (heuristic)"
+}
 
 set dqn_max_iters [expr {[info exists ::env(DQN_MAX_ITERATIONS)] ? $::env(DQN_MAX_ITERATIONS) : 50}]
 
@@ -63,21 +80,32 @@ for {set iter 1} {$iter <= $dqn_max_iters} {incr iter} {
     set ::env(REPORT_FOLDER) "$::env(STEP_DIR)/reports/iter${::env(CURRENT_ITERATION)}_$corner_name"
     source $::env(TCL_UTILS_DIR)/get_timing_metrics.tcl
 
-    # Call Python DQN agent - pass data via environment variables
+    # Call appropriate agent (DQN or Heuristic)
     set actions_file "$::env(STEP_DIR)/actions/actions_iter${iter}.txt"
     set model_file "$::env(DQN_MODEL_PATH)"
     set report_file "$::env(REPORT_FOLDER)/max.rpt"
     
-    puts "\[INFO\] Running DQN agent: $::env(DQN_AGENT_SCRIPT)"
-    exec python3 $::env(DQN_AGENT_SCRIPT) \
-        --timing-report $report_file \
-        --output-actions $actions_file \
-        --model $model_file \
-        --iteration $iter \
-        --verbose \
-        --state-log "/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test/logs/state.log"  \
-        --epsilon 0.1 \
-        >@ stdout 2>@ stderr
+    if {$::env(ACTIVE_AGENT) eq "dqn"} {
+        puts "\[INFO\] Running DQN agent: $::env(DQN_AGENT_SCRIPT)"
+        exec python3 $::env(DQN_AGENT_SCRIPT) \
+            --timing-report $report_file \
+            --output-actions $actions_file \
+            --model $model_file \
+            --iteration $iter \
+            --verbose \
+            --state-log "$::env(STEP_DIR)/logs/latest_run.log" \
+            --epsilon 0.1 \
+            >@ stdout 2>@ stderr
+    } else {
+        puts "\[INFO\] Running heuristic agent: $::env(HEURISTIC_AGENT_SCRIPT)"
+        exec python3 $::env(HEURISTIC_AGENT_SCRIPT) \
+            --timing-report $report_file \
+            --output-actions $actions_file \
+            --strategy balanced \
+            --iteration $iter \
+            --verbose \
+            >@ stdout 2>@ stderr
+    }
     
 
     # Read and apply actions
@@ -150,7 +178,7 @@ for {set iter 1} {$iter <= $dqn_max_iters} {incr iter} {
 # ============================================================================
 
 puts "\n========================================="
-puts "DQN Cell Resizing Complete"
+puts "Cell Resizing Complete ($::env(ACTIVE_AGENT))"
 puts "========================================="
 
 # Re-estimate parasitics one final time
@@ -188,4 +216,5 @@ puts "========================================="
 puts "\[INFO\] Writing output database..."
 write_views
 
-puts "\[SUCCESS\] DQN resizing flow complete!"
+puts "\[SUCCESS\] Cell resizing flow complete!"
+puts "Agent used: $::env(ACTIVE_AGENT)"

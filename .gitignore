@@ -20,6 +20,7 @@ runs/
 *.log
 *.tmp
 tmp/
+.archived/
 
 # IDE files
 .vscode/
