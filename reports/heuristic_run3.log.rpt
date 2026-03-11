@@ -1,0 +1,1879 @@
+[INFO] No trained model found - using heuristic agent
+[INFO] Loading corners
+Reading timing models for corner nom_tt_025C_1v80…
+Reading timing library for the 'nom_tt_025C_1v80' corner at '/home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__tt_025C_1v80.lib'…
+Reading timing models for corner nom_ff_n40C_1v95…
+Reading timing library for the 'nom_ff_n40C_1v95' corner at '/home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ff_n40C_1v95.lib'…
+Reading timing models for corner nom_ss_100C_1v60…
+Reading timing library for the 'nom_ss_100C_1v60' corner at '/home/isaishaq/.volare/volare/sky130/versions/0fe599b2afb6708d281543108caf8310912f54af/sky130A/libs.ref/sky130_fd_sc_hd/lib/sky130_fd_sc_hd__ss_100C_1v60.lib'…
+[INFO] Loading ODB
+Reading OpenROAD database at '/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/46-odb-reportdisconnectedpins/picorv32a.odb'…
+Reading design constraints file at '/nix/store/1vd3py71ivn1rq0gq8g6jdlzbjzgmahq-python3-3.11.9-env/lib/python3.11/site-packages/openlane/scripts/base.sdc'…
+[INFO] Using clock clk…
+[INFO] Setting output delay to: 3
+[INFO] Setting input delay to: 3
+[INFO] Setting load to: 0.033442
+[INFO] Setting clock uncertainty to: 0.25
+[INFO] Setting clock transition to: 0.15
+[INFO] Setting timing derate to: 5%
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__o311a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__o311a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__o311a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__o311a_2_X_C1_sky130_fd_sc_hd__nand2b_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__o311a_2_X_C1_sky130_fd_sc_hd__nand2b_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__o311a_2_X_C1_sky130_fd_sc_hd__nand2b_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a21oi_2_Y_A2_sky130_fd_sc_hd__nand2b_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a21oi_2_Y_A2_sky130_fd_sc_hd__nand2b_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a21oi_2_Y_A2_sky130_fd_sc_hd__nand2b_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a21oi_2_Y_B1_sky130_fd_sc_hd__and2b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a21oi_2_Y_B1_sky130_fd_sc_hd__and2b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a21oi_2_Y_B1_sky130_fd_sc_hd__and2b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[15\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[15\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[15\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[14\]_sky130_fd_sc_hd__a221o_2_A1_B1_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin alu_shr\[14\]_sky130_fd_sc_hd__a221o_2_A1_B1_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin alu_shr\[14\]_sky130_fd_sc_hd__a221o_2_A1_B1_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[15\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[15\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[15\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[17\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[17\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[17\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[20\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[20\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[20\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__o21ba_2_B1_N/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__o21ba_2_B1_N/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__o21ba_2_B1_N/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[24\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__a21oi_2_Y_A1_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[24\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__a21oi_2_Y_A1_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[24\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__a21oi_2_Y_A1_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__o22a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__o22a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__o22a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[27\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/B.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[27\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/B.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[27\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/B.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/B.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/B.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y/B.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[4\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[4\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[4\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[3\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y_A2_sky130_fd_sc_hd__o21ba_2_B1_N/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[3\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y_A2_sky130_fd_sc_hd__o21ba_2_B1_N/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[3\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y_A2_sky130_fd_sc_hd__o21ba_2_B1_N/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/C.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/C.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/C.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[5\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[5\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[5\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[5\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a31o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[5\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a31o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[5\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__a31o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[7\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[7\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[7\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[8\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__o31a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[8\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__o31a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[8\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__o31a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_B_sky130_fd_sc_hd__and4b_2_X_C_sky130_fd_sc_hd__a21o_2_A1_B1_sky130_fd_sc_hd__and2b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_B_sky130_fd_sc_hd__and4b_2_X_C_sky130_fd_sc_hd__a21o_2_A1_B1_sky130_fd_sc_hd__and2b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_B_sky130_fd_sc_hd__and4b_2_X_C_sky130_fd_sc_hd__a21o_2_A1_B1_sky130_fd_sc_hd__and2b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/B.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/B.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/B.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/C.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/C.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/C.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X_D_sky130_fd_sc_hd__nand2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/D.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X_D_sky130_fd_sc_hd__nand2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/D.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X_D_sky130_fd_sc_hd__nand2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/D.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/D.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/D.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/D.
+[WARNING GRT-0026] Missing route to pin alu_lts_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__a31o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_lts_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__a31o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_lts_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__a31o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out\[21\]_sky130_fd_sc_hd__o22a_2_X_B1_sky130_fd_sc_hd__a31o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out\[21\]_sky130_fd_sc_hd__o22a_2_X_B1_sky130_fd_sc_hd__a31o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out\[21\]_sky130_fd_sc_hd__o22a_2_X_B1_sky130_fd_sc_hd__a31o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__a221o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__a221o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__a221o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[25\]_sky130_fd_sc_hd__a221o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[25\]_sky130_fd_sc_hd__a221o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[25\]_sky130_fd_sc_hd__a221o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__a221o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__a221o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__a221o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out\[6\]_sky130_fd_sc_hd__o22a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out\[6\]_sky130_fd_sc_hd__o22a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out\[6\]_sky130_fd_sc_hd__o22a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out\[7\]_sky130_fd_sc_hd__o22a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out\[7\]_sky130_fd_sc_hd__o22a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out\[7\]_sky130_fd_sc_hd__o22a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[10\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_A2_sky130_fd_sc_hd__and2b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[10\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_A2_sky130_fd_sc_hd__and2b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[10\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_A2_sky130_fd_sc_hd__and2b_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[11\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[11\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[11\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[11\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A_B_sky130_fd_sc_hd__o21a_2_X_A1_sky130_fd_sc_hd__and3_2_C/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[11\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A_B_sky130_fd_sc_hd__o21a_2_X_A1_sky130_fd_sc_hd__and3_2_C/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[11\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A_B_sky130_fd_sc_hd__o21a_2_X_A1_sky130_fd_sc_hd__and3_2_C/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[11\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[11\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[11\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[12\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2_X_sky130_fd_sc_hd__nand3_2_B/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[12\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2_X_sky130_fd_sc_hd__nand3_2_B/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[12\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2_X_sky130_fd_sc_hd__nand3_2_B/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[14\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[14\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[14\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[14\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_C1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[14\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_C1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[14\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_C1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin reg_next_pc\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a22o_2_X_B2_sky130_fd_sc_hd__a22o_2_X_B1_sky130_fd_sc_hd__o221ai_2_Y_A2_sky130_fd_sc_hd__o21bai_2_Y/B1_N.
+[WARNING GRT-0026] Missing route to pin reg_next_pc\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a22o_2_X_B2_sky130_fd_sc_hd__a22o_2_X_B1_sky130_fd_sc_hd__o221ai_2_Y_A2_sky130_fd_sc_hd__o21bai_2_Y/B1_N.
+[WARNING GRT-0026] Missing route to pin reg_next_pc\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a22o_2_X_B2_sky130_fd_sc_hd__a22o_2_X_B1_sky130_fd_sc_hd__o221ai_2_Y_A2_sky130_fd_sc_hd__o21bai_2_Y/B1_N.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[15\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[15\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[15\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[15\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[15\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[15\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin ANTENNA_24/DIODE.
+[WARNING GRT-0026] Missing route to pin ANTENNA_24/DIODE.
+[WARNING GRT-0026] Missing route to pin ANTENNA_24/DIODE.
+[WARNING GRT-0026] Missing route to pin ANTENNA_231/DIODE.
+[WARNING GRT-0026] Missing route to pin ANTENNA_231/DIODE.
+[WARNING GRT-0026] Missing route to pin ANTENNA_231/DIODE.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[19\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[19\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[19\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin reg_out\[1\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin reg_out\[1\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin reg_out\[1\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[20\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2_X_sky130_fd_sc_hd__and2_2_B/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[20\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2_X_sky130_fd_sc_hd__and2_2_B/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[20\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2_X_sky130_fd_sc_hd__and2_2_B/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[21\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[21\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[21\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[21\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[21\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[21\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[23\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[23\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[23\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[23\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[23\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[23\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[24\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[24\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[24\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[27\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_C1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/A2.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[27\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_C1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/A2.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[27\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_C1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/A2.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[27\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[27\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[27\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin ANTENNA_34/DIODE.
+[WARNING GRT-0026] Missing route to pin ANTENNA_34/DIODE.
+[WARNING GRT-0026] Missing route to pin ANTENNA_34/DIODE.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[28\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2_X_sky130_fd_sc_hd__and3_2_A_X_sky130_fd_sc_hd__o21ai_2_A2/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[28\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2_X_sky130_fd_sc_hd__and3_2_A_X_sky130_fd_sc_hd__o21ai_2_A2/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[28\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__o22a_2_A2_X_sky130_fd_sc_hd__and3_2_A_X_sky130_fd_sc_hd__o21ai_2_A2/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[29\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[29\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[29\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[2\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[2\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[2\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[2\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[2\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[2\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[30\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[30\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[30\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin reg_next_pc\[31\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a22o_2_X_B2_sky130_fd_sc_hd__a221o_2_X_C1_sky130_fd_sc_hd__o221a_2_X_A2_sky130_fd_sc_hd__a31o_2_X_A3_sky130_fd_sc_hd__xor2_2_X/B.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[31\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin reg_next_pc\[31\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a22o_2_X_B2_sky130_fd_sc_hd__a221o_2_X_C1_sky130_fd_sc_hd__o221a_2_X_A2_sky130_fd_sc_hd__a31o_2_X_A3_sky130_fd_sc_hd__xor2_2_X/B.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[31\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin reg_next_pc\[31\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a22o_2_X_B2_sky130_fd_sc_hd__a221o_2_X_C1_sky130_fd_sc_hd__o221a_2_X_A2_sky130_fd_sc_hd__a31o_2_X_A3_sky130_fd_sc_hd__xor2_2_X/B.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[31\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_A2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[31\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_B1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[31\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_B1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[31\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a22o_2_B1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[3\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[3\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[3\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[3\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[3\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[3\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[4\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__o22a_2_A2_B1_sky130_fd_sc_hd__nor2_2_Y_A_sky130_fd_sc_hd__and2_2_B/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[4\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__o22a_2_A2_B1_sky130_fd_sc_hd__nor2_2_Y_A_sky130_fd_sc_hd__and2_2_B/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[4\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__o22a_2_A2_B1_sky130_fd_sc_hd__nor2_2_Y_A_sky130_fd_sc_hd__and2_2_B/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[4\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[4\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[4\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[5\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[5\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[5\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[5\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[5\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[5\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[5\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__and2_2_B_1_X_sky130_fd_sc_hd__o22a_2_A1_B1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[5\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__and2_2_B_1_X_sky130_fd_sc_hd__o22a_2_A1_B1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[5\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__and2_2_B_1_X_sky130_fd_sc_hd__o22a_2_A1_B1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[7\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_A2_sky130_fd_sc_hd__or4_2_B/B.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[7\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_A2_sky130_fd_sc_hd__or4_2_B/B.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[7\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_A2_sky130_fd_sc_hd__or4_2_B/B.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[7\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[7\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[7\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[8\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A_B_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[8\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A_B_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[8\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A_B_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[8\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[8\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[8\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[9\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2/B2.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[9\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2/B2.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[9\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2/B2.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[9\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[9\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[9\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2/X.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[9\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a21oi_2_B1_A2_sky130_fd_sc_hd__xnor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[9\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a21oi_2_B1_A2_sky130_fd_sc_hd__xnor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_out_q\[9\]_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a221o_2_B2_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a21oi_2_B1_A2_sky130_fd_sc_hd__xnor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[12\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__nor2_2_A/A.
+[WARNING GRT-0026] Missing route to pin alu_shl\[12\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__nor2_2_A/A.
+[WARNING GRT-0026] Missing route to pin alu_shl\[12\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__nor2_2_A/A.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_D_sky130_fd_sc_hd__and4b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin alu_shl\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__o21ai_2_Y/B1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__o21ai_2_Y/B1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[12\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__o21ai_2_Y/B1.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin alu_eq_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and4_2_X_C_sky130_fd_sc_hd__and4b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin alu_shl\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a211oi_2_Y_A2_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a211oi_2_Y_A2_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[14\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a211oi_2_Y_A2_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[18\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[18\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[18\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[20\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a22o_2_X_B2_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[20\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a22o_2_X_B2_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[20\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a22o_2_X_B2_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[21\]_sky130_fd_sc_hd__a22o_2_A1_B2_sky130_fd_sc_hd__and2_2_A_B_sky130_fd_sc_hd__nand2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[21\]_sky130_fd_sc_hd__a22o_2_A1_B2_sky130_fd_sc_hd__and2_2_A_B_sky130_fd_sc_hd__nand2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[21\]_sky130_fd_sc_hd__a22o_2_A1_B2_sky130_fd_sc_hd__and2_2_A_B_sky130_fd_sc_hd__nand2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shl\[22\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__a221o_2_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__a221o_2_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__a221o_2_A1/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[23\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[24\]_sky130_fd_sc_hd__a221o_2_B2/B2.
+[WARNING GRT-0026] Missing route to pin alu_shl\[24\]_sky130_fd_sc_hd__a221o_2_B2/B2.
+[WARNING GRT-0026] Missing route to pin alu_shl\[24\]_sky130_fd_sc_hd__a221o_2_B2/B2.
+[WARNING GRT-0026] Missing route to pin alu_shl\[24\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[24\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[24\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux4_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux4_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux4_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[30\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[30\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[30\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[26\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[26\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[26\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[27\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux4_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[27\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux4_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[27\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux4_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[27\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[27\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[27\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[31\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__a21o_2_X_A2_sky130_fd_sc_hd__o31a_2_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[31\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__a21o_2_X_A2_sky130_fd_sc_hd__o31a_2_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_add_sub\[31\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__a21o_2_X_A2_sky130_fd_sc_hd__o31a_2_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[18\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[18\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[18\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shl\[30\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[30\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[30\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[30\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[30\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[30\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[31\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[31\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[31\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[4\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and2b_2_X_B_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[4\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and2b_2_X_B_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[4\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and2b_2_X_B_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__a21o_2_A1_B1_sky130_fd_sc_hd__a22o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__a21o_2_A1_B1_sky130_fd_sc_hd__a22o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__a21o_2_A1_B1_sky130_fd_sc_hd__a22o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and2b_2_X_B_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and2b_2_X_B_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and2b_2_X_B_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[8\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[8\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_shl\[8\]_sky130_fd_sc_hd__a221o_2_B2_A1_sky130_fd_sc_hd__nor2_2_A/Y.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[21\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shr\[21\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shr\[21\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin alu_shr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[25\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shr\[25\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shr\[25\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shr\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[25\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__a221o_2_A1_B1_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__a221o_2_A1_B1_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__a221o_2_A1_B1_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[3\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shr\[3\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shr\[3\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin alu_shr\[3\]_sky130_fd_sc_hd__a221o_2_A1_C1_sky130_fd_sc_hd__a22o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[3\]_sky130_fd_sc_hd__a221o_2_A1_C1_sky130_fd_sc_hd__a22o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[3\]_sky130_fd_sc_hd__a221o_2_A1_C1_sky130_fd_sc_hd__a22o_2_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[3\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[3\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[3\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A0_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[4\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[4\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[4\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[20\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[20\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[20\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[4\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[4\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[4\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_A2_sky130_fd_sc_hd__mux2_1_X/A1.
+[WARNING GRT-0026] Missing route to pin alu_shr\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_A0_A1_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_A0_A1_sky130_fd_sc_hd__mux2_1_X/A0.
+[WARNING GRT-0026] Missing route to pin alu_shr\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_A0_A1_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_A0_A1_sky130_fd_sc_hd__mux2_1_X/A0.
+[WARNING GRT-0026] Missing route to pin alu_shr\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_A0_A1_sky130_fd_sc_hd__mux2_1_X_A0_sky130_fd_sc_hd__mux2_1_X/X.
+[WARNING GRT-0026] Missing route to pin alu_shr\[6\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux4_2_X_A3_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__mux2_1_A0_A1_sky130_fd_sc_hd__mux2_1_X/A0.
+[WARNING GRT-0026] Missing route to pin alu_shr\[7\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__o22a_2_X_B1_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shr\[7\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__o22a_2_X_B1_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin alu_shr\[7\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__mux2_1_X_A1_sky130_fd_sc_hd__o22a_2_X_B1_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_cycle\[15\]_sky130_fd_sc_hd__and4_2_C/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[15\]_sky130_fd_sc_hd__and4_2_C/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[15\]_sky130_fd_sc_hd__and4_2_C/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[18\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_cycle\[18\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_cycle\[18\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_cycle\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a21oi_2_Y_B1_sky130_fd_sc_hd__o21ai_2_Y/A2.
+[WARNING GRT-0026] Missing route to pin count_cycle\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a21oi_2_Y_B1_sky130_fd_sc_hd__o21ai_2_Y/A2.
+[WARNING GRT-0026] Missing route to pin count_cycle\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a21oi_2_Y_B1_sky130_fd_sc_hd__o21ai_2_Y/A2.
+[WARNING GRT-0026] Missing route to pin count_cycle\[27\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_cycle\[27\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_cycle\[27\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_cycle\[30\]_sky130_fd_sc_hd__a221o_2_B1_X_sky130_fd_sc_hd__o211a_2_A2_B1_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[30\]_sky130_fd_sc_hd__a221o_2_B1_X_sky130_fd_sc_hd__o211a_2_A2_B1_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[30\]_sky130_fd_sc_hd__a221o_2_B1_X_sky130_fd_sc_hd__o211a_2_A2_B1_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[30\]_sky130_fd_sc_hd__a221o_2_B1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[30\]_sky130_fd_sc_hd__a221o_2_B1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[30\]_sky130_fd_sc_hd__a221o_2_B1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[32\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X_C_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[32\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X_C_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[32\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X_C_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[33\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[33\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[33\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[37\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_cycle\[37\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_cycle\[37\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_cycle\[3\]_sky130_fd_sc_hd__a211o_2_A1_B1_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[3\]_sky130_fd_sc_hd__a211o_2_A1_B1_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[3\]_sky130_fd_sc_hd__a211o_2_A1_B1_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[41\]_sky130_fd_sc_hd__and3_2_B/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[41\]_sky130_fd_sc_hd__and3_2_B/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[41\]_sky130_fd_sc_hd__and3_2_B/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[49\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[49\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[49\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[53\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[53\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[53\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[54\]_sky130_fd_sc_hd__and2_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[54\]_sky130_fd_sc_hd__and2_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[54\]_sky130_fd_sc_hd__and2_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/C.
+[WARNING GRT-0026] Missing route to pin count_cycle\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/C.
+[WARNING GRT-0026] Missing route to pin count_cycle\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/C.
+[WARNING GRT-0026] Missing route to pin count_cycle\[59\]_sky130_fd_sc_hd__and3_2_B/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[59\]_sky130_fd_sc_hd__and3_2_B/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[59\]_sky130_fd_sc_hd__and3_2_B/X.
+[WARNING GRT-0026] Missing route to pin count_cycle\[6\]_sky130_fd_sc_hd__and4_2_C/B.
+[WARNING GRT-0026] Missing route to pin count_cycle\[6\]_sky130_fd_sc_hd__and4_2_C/B.
+[WARNING GRT-0026] Missing route to pin count_cycle\[6\]_sky130_fd_sc_hd__and4_2_C/B.
+[WARNING GRT-0026] Missing route to pin count_cycle\[9\]_sky130_fd_sc_hd__o21ai_2_A1/A2.
+[WARNING GRT-0026] Missing route to pin count_cycle\[8\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin count_cycle\[9\]_sky130_fd_sc_hd__o21ai_2_A1/A2.
+[WARNING GRT-0026] Missing route to pin count_cycle\[8\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin count_cycle\[9\]_sky130_fd_sc_hd__o21ai_2_A1/A2.
+[WARNING GRT-0026] Missing route to pin count_cycle\[8\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin count_instr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[12\]_sky130_fd_sc_hd__a221o_2_A1_X_sky130_fd_sc_hd__o22a_2_B1_A2_sky130_fd_sc_hd__a221o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[12\]_sky130_fd_sc_hd__a221o_2_A1_X_sky130_fd_sc_hd__o22a_2_B1_A2_sky130_fd_sc_hd__a221o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[12\]_sky130_fd_sc_hd__a221o_2_A1_X_sky130_fd_sc_hd__o22a_2_B1_A2_sky130_fd_sc_hd__a221o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[12\]_sky130_fd_sc_hd__and4_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[12\]_sky130_fd_sc_hd__and4_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[12\]_sky130_fd_sc_hd__and4_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[15\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[15\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[15\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[17\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X_C_sky130_fd_sc_hd__a21o_2_X/A1.
+[WARNING GRT-0026] Missing route to pin count_instr\[17\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X_C_sky130_fd_sc_hd__a21o_2_X/A1.
+[WARNING GRT-0026] Missing route to pin count_instr\[17\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X_C_sky130_fd_sc_hd__a21o_2_X/A1.
+[WARNING GRT-0026] Missing route to pin count_instr\[17\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_instr\[17\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_instr\[17\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_instr\[17\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X_C_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[17\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X_C_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[17\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X_C_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[18\]_sky130_fd_sc_hd__a221o_2_A1_X_sky130_fd_sc_hd__o211a_2_A2_B1_sky130_fd_sc_hd__a21o_2_X_B1_sky130_fd_sc_hd__a221o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[18\]_sky130_fd_sc_hd__a221o_2_A1_X_sky130_fd_sc_hd__o211a_2_A2_B1_sky130_fd_sc_hd__a21o_2_X_B1_sky130_fd_sc_hd__a221o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[18\]_sky130_fd_sc_hd__a221o_2_A1_X_sky130_fd_sc_hd__o211a_2_A2_B1_sky130_fd_sc_hd__a21o_2_X_B1_sky130_fd_sc_hd__a221o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[22\]_sky130_fd_sc_hd__a221o_2_A1_X_sky130_fd_sc_hd__o211a_2_A2_B1_sky130_fd_sc_hd__a21o_2_X_B1_sky130_fd_sc_hd__a221o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[22\]_sky130_fd_sc_hd__a221o_2_A1_X_sky130_fd_sc_hd__o211a_2_A2_B1_sky130_fd_sc_hd__a21o_2_X_B1_sky130_fd_sc_hd__a221o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[22\]_sky130_fd_sc_hd__a221o_2_A1_X_sky130_fd_sc_hd__o211a_2_A2_B1_sky130_fd_sc_hd__a21o_2_X_B1_sky130_fd_sc_hd__a221o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[26\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/C.
+[WARNING GRT-0026] Missing route to pin count_instr\[26\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/C.
+[WARNING GRT-0026] Missing route to pin count_instr\[26\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/C.
+[WARNING GRT-0026] Missing route to pin count_instr\[23\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[23\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[23\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin count_instr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin count_instr\[22\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/A_N.
+[WARNING GRT-0026] Missing route to pin count_instr\[26\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[26\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[26\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[26\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[26\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[26\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[2\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[2\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[2\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[33\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[33\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[33\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[33\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3_2_X_B_sky130_fd_sc_hd__or2_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[33\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3_2_X_B_sky130_fd_sc_hd__or2_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[33\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3_2_X_B_sky130_fd_sc_hd__or2_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[36\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[36\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[36\]_sky130_fd_sc_hd__o21ai_2_A1_A2_sky130_fd_sc_hd__and3_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[39\]_sky130_fd_sc_hd__a22o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[39\]_sky130_fd_sc_hd__a22o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[39\]_sky130_fd_sc_hd__a22o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[42\]_sky130_fd_sc_hd__a21o_2_A1_X_sky130_fd_sc_hd__a211o_2_B1_X_sky130_fd_sc_hd__and3_2_C_B_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[42\]_sky130_fd_sc_hd__a21o_2_A1_X_sky130_fd_sc_hd__a211o_2_B1_X_sky130_fd_sc_hd__and3_2_C_B_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[42\]_sky130_fd_sc_hd__a21o_2_A1_X_sky130_fd_sc_hd__a211o_2_B1_X_sky130_fd_sc_hd__and3_2_C_B_sky130_fd_sc_hd__a21o_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[43\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_instr\[43\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_instr\[43\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_instr\[43\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin count_instr\[43\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin count_instr\[43\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin count_instr\[45\]_sky130_fd_sc_hd__a22o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[45\]_sky130_fd_sc_hd__a22o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[45\]_sky130_fd_sc_hd__a22o_2_A1/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[46\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_instr\[46\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_instr\[46\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin count_instr\[49\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_B1_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[49\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_B1_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[49\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o21a_2_X_B1_sky130_fd_sc_hd__a21oi_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[51\]_sky130_fd_sc_hd__a22o_2_A1_X_sky130_fd_sc_hd__a221o_2_C1_X_sky130_fd_sc_hd__o22a_2_B1_A1_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[51\]_sky130_fd_sc_hd__a22o_2_A1_X_sky130_fd_sc_hd__a221o_2_C1_X_sky130_fd_sc_hd__o22a_2_B1_A1_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[51\]_sky130_fd_sc_hd__a22o_2_A1_X_sky130_fd_sc_hd__a221o_2_C1_X_sky130_fd_sc_hd__o22a_2_B1_A1_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[53\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[53\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[53\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__and3b_2_X/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[54\]_sky130_fd_sc_hd__and4_2_A/A.
+[WARNING GRT-0026] Missing route to pin count_instr\[54\]_sky130_fd_sc_hd__and4_2_A/A.
+[WARNING GRT-0026] Missing route to pin count_instr\[54\]_sky130_fd_sc_hd__and4_2_A/A.
+[WARNING GRT-0026] Missing route to pin count_instr\[56\]_sky130_fd_sc_hd__and3_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[56\]_sky130_fd_sc_hd__and3_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[56\]_sky130_fd_sc_hd__and3_2_A/X.
+[WARNING GRT-0026] Missing route to pin count_instr\[56\]_sky130_fd_sc_hd__o21ai_2_A1/A2.
+[WARNING GRT-0026] Missing route to pin count_instr\[56\]_sky130_fd_sc_hd__o21ai_2_A1/A2.
+[WARNING GRT-0026] Missing route to pin count_instr\[56\]_sky130_fd_sc_hd__o21ai_2_A1/A2.
+[WARNING GRT-0026] Missing route to pin count_instr\[56\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[56\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[56\]_sky130_fd_sc_hd__o21ai_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin count_instr\[57\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o21ai_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin cpu_state\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a211o_2_X/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a211o_2_X/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[0\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__a211o_2_X/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__or2_2_X/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__or2_2_X/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[1\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__or2_2_X/X.
+[WARNING GRT-0026] Missing route to pin mem_wordsize\[0\]_sky130_fd_sc_hd__o21a_2_B1_X_sky130_fd_sc_hd__a41o_2_A3_B1_sky130_fd_sc_hd__a21oi_2_B1/Y.
+[WARNING GRT-0026] Missing route to pin mem_wordsize\[0\]_sky130_fd_sc_hd__o21a_2_B1_X_sky130_fd_sc_hd__a41o_2_A3_B1_sky130_fd_sc_hd__a21oi_2_B1/Y.
+[WARNING GRT-0026] Missing route to pin mem_wordsize\[0\]_sky130_fd_sc_hd__o21a_2_B1_X_sky130_fd_sc_hd__a41o_2_A3_B1_sky130_fd_sc_hd__a21oi_2_B1/Y.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__a32o_2_A2/B1.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__a32o_2_A2/B1.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__a32o_2_A2/B1.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__or3_2_X/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__a32o_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__or3_2_X/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__a32o_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__or3_2_X/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__a32o_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_C1_sky130_fd_sc_hd__nor2_2_Y_A_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_C1_sky130_fd_sc_hd__nor2_2_Y_A_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_C1_sky130_fd_sc_hd__nor2_2_Y_A_sky130_fd_sc_hd__inv_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_C1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__a22o_2_A1_B1_sky130_fd_sc_hd__nand3_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_C1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__a22o_2_A1_B1_sky130_fd_sc_hd__nand3_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin cpu_state\[2\]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__o211a_2_X_C1_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__a22o_2_A1_B1_sky130_fd_sc_hd__nand3_2_Y/Y.
+[WARNING GRT-0026] Missing route to pin fanout1625/A.
+[WARNING GRT-0026] Missing route to pin cpu_state\[4\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin fanout1625/A.
+[WARNING GRT-0026] Missing route to pin cpu_state\[4\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin fanout1625/A.
+[WARNING GRT-0026] Missing route to pin cpu_state\[4\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpu_state\[5\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[5\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpu_state\[5\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin input32/X.
+[WARNING GRT-0026] Missing route to pin input32/X.
+[WARNING GRT-0026] Missing route to pin input32/X.
+[WARNING GRT-0026] Missing route to pin input30/X.
+[WARNING GRT-0026] Missing route to pin input30/X.
+[WARNING GRT-0026] Missing route to pin input30/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[15\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[15\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[15\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[15\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[15\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[15\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[15\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[15\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[15\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[18\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[18\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[18\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[26\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[26\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[26\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[28\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[28\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[28\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin input11/X.
+[WARNING GRT-0026] Missing route to pin input11/X.
+[WARNING GRT-0026] Missing route to pin input11/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[2\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[2\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[2\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin input10/X.
+[WARNING GRT-0026] Missing route to pin input10/X.
+[WARNING GRT-0026] Missing route to pin input10/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[3\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__o21a_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[3\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__o21a_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[3\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__o21a_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin input5/X.
+[WARNING GRT-0026] Missing route to pin input5/X.
+[WARNING GRT-0026] Missing route to pin input5/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[8\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[8\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[8\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin input1/X.
+[WARNING GRT-0026] Missing route to pin input1/X.
+[WARNING GRT-0026] Missing route to pin input1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[0\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[0\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[0\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[8\]\[16\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[8\]\[16\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[8\]\[16\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[20\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[20\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[20\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[20\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__or2_2_B/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[20\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__or2_2_B/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[20\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__or2_2_B/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[23\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[23\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[23\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[24\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[24\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[24\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[24\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[24\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[24\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[8\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[8\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[8\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[4\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[4\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[4\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[11\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[11\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[11\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[11\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[11\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[11\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[10\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[11\]\[7\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[11\]\[7\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[11\]\[7\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[0\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[0\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[0\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[0\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[0\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[0\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[11\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[11\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[11\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[11\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[11\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[11\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[15\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[15\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[15\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[15\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[15\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[15\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[15\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[15\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[15\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[17\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[17\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[17\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[20\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[20\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[20\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[8\]\[22\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__a211o_2_A2/B1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[8\]\[22\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__a211o_2_A2/B1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[8\]\[22\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__a211o_2_A2/B1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[29\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[29\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[29\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[30\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[4\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[4\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[4\]_sky130_fd_sc_hd__mux2_1_A0_1_X_sky130_fd_sc_hd__o211a_2_A2/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[12\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[13\]\[27\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[13\]\[27\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[13\]\[27\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[13\]\[27\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[13\]\[27\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[13\]\[27\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[13\]\[3\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[13\]\[3\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[13\]\[3\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[0\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[0\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[0\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[10\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[10\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[10\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[17\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[17\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[17\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[22\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[22\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[22\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[24\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[24\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[24\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[24\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__or2_2_B/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[24\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__or2_2_B/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[24\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__or2_2_B/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[28\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[28\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[28\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[28\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[28\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[28\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[29\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[29\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[29\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[4\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[4\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[4\]_sky130_fd_sc_hd__mux2_1_A1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[4\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[4\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[4\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[4\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__or2_2_B/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[4\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__or2_2_B/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[4\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__or2_2_B/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[6\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[6\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[6\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[7\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[7\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[7\]_sky130_fd_sc_hd__mux2_1_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[15\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[15\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[15\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[17\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[17\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[17\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[18\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[18\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[18\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[21\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[21\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[21\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[24\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[24\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[14\]\[24\]_sky130_fd_sc_hd__mux2_1_A0/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[2\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[2\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[2\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[2\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[2\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[2\]_sky130_fd_sc_hd__dfxtp_2_Q/D.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[6\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[6\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[6\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[6\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[6\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[6\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[8\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[8\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[8\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[8\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[8\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[15\]\[8\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[0\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[0\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[0\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[11\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_X_sky130_fd_sc_hd__a21oi_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[11\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_X_sky130_fd_sc_hd__a21oi_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[11\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_X_sky130_fd_sc_hd__a21oi_2_A1/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[19\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[19\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[19\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[1\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[20\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[31\]_sky130_fd_sc_hd__mux2_1_A0_1/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[31\]_sky130_fd_sc_hd__mux2_1_A0_1/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[31\]_sky130_fd_sc_hd__mux2_1_A0_1/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[3\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a211oi_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[3\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a211oi_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[3\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a211oi_2_A2/A2.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[4\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[4\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[4\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[6\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[0\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[0\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[0\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[10\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[10\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[16\]\[10\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[11\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[11\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[11\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[12\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[12\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[12\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[19\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[19\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[19\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[25\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[25\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[25\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[25\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[25\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[17\]\[25\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[13\]_sky130_fd_sc_hd__or2_2_A/A.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[13\]_sky130_fd_sc_hd__or2_2_A/A.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[13\]_sky130_fd_sc_hd__or2_2_A/A.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[15\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[15\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[15\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[18\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[18\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[18\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[1\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[1\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[1\]_sky130_fd_sc_hd__or2_2_A/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[28\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[2\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[3\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[3\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[3\]_sky130_fd_sc_hd__mux2_1_A0_1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[0\]_sky130_fd_sc_hd__o211a_2_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[0\]_sky130_fd_sc_hd__o211a_2_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[0\]_sky130_fd_sc_hd__o211a_2_A1/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[10\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a211oi_2_A2/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[10\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a211oi_2_A2/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[10\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a211oi_2_A2/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[12\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[12\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[12\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[16\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[16\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[16\]_sky130_fd_sc_hd__mux2_1_A0/A0.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[16\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[16\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[16\]_sky130_fd_sc_hd__mux2_1_A0/X.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[16\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a211oi_2_A2/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[16\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a211oi_2_A2/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[16\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1_Y_sky130_fd_sc_hd__a211oi_2_A2/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[17\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[17\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[17\]_sky130_fd_sc_hd__dfxtp_2_Q/Q.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[17\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[17\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[19\]\[17\]_sky130_fd_sc_hd__o211a_2_A1_X_sky130_fd_sc_hd__a21oi_2_B1/Y.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[18\]\[18\]_sky130_fd_sc_hd__mux2_1_A0_1/A1.
+[WARNING GRT-0026] Missing route to pin cpuregs\[0\]\[21\]_sky130_fd_sc_hd__mux2_1_A0_X_sky130_fd_sc_hd__mux2_1_A1_X_sky130_fd_sc_hd__a211o_2_A2_X_sky130_fd_sc_hd__a21oi_2_A1/Y.
+[WARNING GRT-0026] message limit reached, this message will no longer print
+[INFO] Setting RC values…
+[INFO] Starting cell resizing optimization...
+  Agent: heuristic
+  Max iterations: 50
+  Target WNS: 0.0 ns
+  Strategy: balanced (heuristic)
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 1
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.9260 ns
+  TNS: -33.6500 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. genblk1.pcpi_mul.rd[29]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nand2_2_Y_A_sky130_fd_sc_hd__a211o_2_X_A1_sky130_fd_sc_hd__o211ai_2_Y_A2_sky130_fd_sc_hd__nor3_2_Y_C_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__o22a_2_X_B2_sky130_fd_sc_hd__a211oi_2_Y_A2_sky130_fd_sc_hd__a2bb2o_2_X_A2_N_sky130_fd_sc_hd__or4bb_2_B - Score: 38.6028, Delay: 1.5700, Fanout: 4, Drive: 2, Slack Contribution: 2.6416
+  2. genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or3_2_A - Score: 37.2108, Delay: 1.2270, Fanout: 5, Drive: 2, Slack Contribution: 2.7527
+  3. genblk1.pcpi_mul.rd[29]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nand2_2_Y_A_sky130_fd_sc_hd__a211o_2_X_A1_sky130_fd_sc_hd__o211ai_2_Y_A2_sky130_fd_sc_hd__nor3_2_Y_C_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__o22a_2_X_B2_sky130_fd_sc_hd__a211oi_2_Y_A2_sky130_fd_sc_hd__a2bb2o_2_X_A2_N_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__a21oi_2_Y_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or3_2_A - Score: 34.5226, Delay: 1.1950, Fanout: 4, Drive: 2, Slack Contribution: 1.6756
+  4. genblk1.pcpi_mul.rd[29]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nand2_2_Y_A_sky130_fd_sc_hd__a211o_2_X_A1_sky130_fd_sc_hd__o211ai_2_Y_B1_sky130_fd_sc_hd__or3_2_X - Score: 32.3297, Delay: 1.1520, Fanout: 3, Drive: 2, Slack Contribution: 2.3691
+  5. genblk1.pcpi_mul.rd[29]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nand2_2_Y_A_sky130_fd_sc_hd__a211o_2_X_C1_sky130_fd_sc_hd__o21a_2_X_B1_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or2_2_X_B_sky130_fd_sc_hd__nor4_2_A - Score: 30.9900, Delay: 0.9390, Fanout: 3, Drive: 1, Slack Contribution: 1.7555
+
+Deciding upsize for cell: genblk1.pcpi_mul.rd[29]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nand2_2_Y_A_sky130_fd_sc_hd__a211o_2_X_A1_sky130_fd_sc_hd__o211ai_2_Y_A2_sky130_fd_sc_hd__nor3_2_Y_C_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__o22a_2_X_B2_sky130_fd_sc_hd__a211oi_2_Y_A2_sky130_fd_sc_hd__a2bb2o_2_X_A2_N_sky130_fd_sc_hd__or4bb_2_B
+  Timing pressure: 0.2926
+  High delay: True
+  High fanout: False
+  Low drive: True
+  Cell idx: 1
+  Encoding action: cell_idx=1, upsize_levels=3, action_idx=5
+ action space n_actions: 30
+  Selected action: 5
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    genblk1.pcpi_mul.rd[29]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nand2_2_Y_A_sky130_fd_sc_hd__a211o_2_X_A1_sky130_fd_sc_hd__o211ai_2_Y_A2_sky130_fd_sc_hd__nor3_2_Y_C_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__o22a_2_X_B2_sky130_fd_sc_hd__a211oi_2_Y_A2_sky130_fd_sc_hd__a2bb2o_2_X_A2_N_sky130_fd_sc_hd__or4bb_2_B: sky130_fd_sc_hd__or4bb_2 → sky130_fd_sc_hd__or4bb_4
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter1.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter1.txt
+  ✓ Resized genblk1.pcpi_mul.rd[29]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nand2_2_Y_A_sky130_fd_sc_hd__a211o_2_X_A1_sky130_fd_sc_hd__o211ai_2_Y_A2_sky130_fd_sc_hd__nor3_2_Y_C_sky130_fd_sc_hd__o211a_2_X_A2_sky130_fd_sc_hd__o22a_2_X_B2_sky130_fd_sc_hd__a211oi_2_Y_A2_sky130_fd_sc_hd__a2bb2o_2_X_A2_N_sky130_fd_sc_hd__or4bb_2_B -> sky130_fd_sc_hd__or4bb_4
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 1 complete: WNS=-2.4834996984079067, TNS=-26.58814044188432
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 2
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.4830 ns
+  TNS: -26.5870 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or2_2_X_B_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__or4bb_2_A - Score: 38.6404, Delay: 1.5690, Fanout: 4, Drive: 2, Slack Contribution: 2.3598
+  2. genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or3_2_A - Score: 37.2870, Delay: 1.2270, Fanout: 5, Drive: 2, Slack Contribution: 2.5253
+  3. genblk1.pcpi_mul.rd[29]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nand2_2_Y_A_sky130_fd_sc_hd__a211o_2_X_A1_sky130_fd_sc_hd__o211ai_2_Y_A2_sky130_fd_sc_hd__nor3_2_Y_C_sky130_fd_sc_hd__o211a_2_X_C1_sky130_fd_sc_hd__or4_2_X - Score: 36.5241, Delay: 1.7310, Fanout: 2, Drive: 2, Slack Contribution: 3.0145
+  4. genblk1.pcpi_mul.rd[60]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_A_sky130_fd_sc_hd__o311a_2_X - Score: 29.3064, Delay: 0.7430, Fanout: 3, Drive: 1, Slack Contribution: 2.1762
+  5. genblk1.pcpi_mul.rd[32]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_B_sky130_fd_sc_hd__o31a_2_X - Score: 27.6698, Delay: 0.6980, Fanout: 3, Drive: 2, Slack Contribution: 1.7128
+
+Deciding upsize for cell: genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or2_2_X_B_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__or4bb_2_A
+  Timing pressure: 0.2483
+  High delay: True
+  High fanout: False
+  Low drive: True
+  Cell idx: 2
+  Encoding action: cell_idx=2, upsize_levels=3, action_idx=8
+ action space n_actions: 30
+  Selected action: 8
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or2_2_X_B_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__or4bb_2_A: sky130_fd_sc_hd__or4bb_2 → sky130_fd_sc_hd__or4bb_4
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter2.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter2.txt
+  ✓ Resized genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or2_2_X_B_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__or4bb_2_A -> sky130_fd_sc_hd__or4bb_4
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 2 complete: WNS=-2.404677414143953, TNS=-25.532570558283435
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 3
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.4050 ns
+  TNS: -25.5330 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or3_2_A - Score: 37.2627, Delay: 1.2270, Fanout: 5, Drive: 2, Slack Contribution: 2.3874
+  2. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 34.1816, Delay: 0.6650, Fanout: 6, Drive: 1, Slack Contribution: 1.2786
+  3. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 34.1262, Delay: 0.6620, Fanout: 6, Drive: 1, Slack Contribution: 1.2175
+  4. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 34.0639, Delay: 0.6520, Fanout: 6, Drive: 1, Slack Contribution: 1.3081
+  5. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 34.0540, Delay: 0.6490, Fanout: 6, Drive: 1, Slack Contribution: 1.3563
+
+Deciding upsize for cell: genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or3_2_A
+  Timing pressure: 0.2405
+  High delay: True
+  High fanout: False
+  Low drive: True
+  Cell idx: 0
+  Encoding action: cell_idx=0, upsize_levels=3, action_idx=2
+ action space n_actions: 30
+  Selected action: 2
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or3_2_A: sky130_fd_sc_hd__or3_2 → sky130_fd_sc_hd__or3_4
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter3.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter3.txt
+  ✓ Resized genblk1.pcpi_mul.rd[28]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xor2_2_X_A_sky130_fd_sc_hd__nand2b_2_Y_B_sky130_fd_sc_hd__a211o_2_X_A2_sky130_fd_sc_hd__o21ai_2_Y_B1_sky130_fd_sc_hd__or3_2_A -> sky130_fd_sc_hd__or3_4
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 3 complete: WNS=-2.1794815458168517, TNS=-23.001050604077914
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 4
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1790 ns
+  TNS: -23.0000 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. genblk1.pcpi_mul.rd[10]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__a211oi_2_Y_A1_sky130_fd_sc_hd__nand3_2_Y_A_sky130_fd_sc_hd__a21bo_2_X_A1_sky130_fd_sc_hd__o21bai_2_Y_A2_sky130_fd_sc_hd__or3b_2_B - Score: 35.1329, Delay: 1.2240, Fanout: 4, Drive: 2, Slack Contribution: 1.9455
+  2. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 34.2368, Delay: 0.6650, Fanout: 6, Drive: 1, Slack Contribution: 1.2786
+  3. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 34.1787, Delay: 0.6620, Fanout: 6, Drive: 1, Slack Contribution: 1.2175
+  4. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 34.1203, Delay: 0.6520, Fanout: 6, Drive: 1, Slack Contribution: 1.3081
+  5. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 34.1125, Delay: 0.6490, Fanout: 6, Drive: 1, Slack Contribution: 1.3563
+
+Deciding upsize for cell: genblk1.pcpi_mul.rd[10]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__a211oi_2_Y_A1_sky130_fd_sc_hd__nand3_2_Y_A_sky130_fd_sc_hd__a21bo_2_X_A1_sky130_fd_sc_hd__o21bai_2_Y_A2_sky130_fd_sc_hd__or3b_2_B
+  Timing pressure: 0.2179
+  High delay: True
+  High fanout: False
+  Low drive: True
+  Cell idx: 3
+  Encoding action: cell_idx=3, upsize_levels=3, action_idx=11
+ action space n_actions: 30
+  Selected action: 11
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    genblk1.pcpi_mul.rd[10]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__a211oi_2_Y_A1_sky130_fd_sc_hd__nand3_2_Y_A_sky130_fd_sc_hd__a21bo_2_X_A1_sky130_fd_sc_hd__o21bai_2_Y_A2_sky130_fd_sc_hd__or3b_2_B: sky130_fd_sc_hd__or3b_2 → sky130_fd_sc_hd__or3b_4
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter4.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter4.txt
+  ✓ Resized genblk1.pcpi_mul.rd[10]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__a211oi_2_Y_A1_sky130_fd_sc_hd__nand3_2_Y_A_sky130_fd_sc_hd__a21bo_2_X_A1_sky130_fd_sc_hd__o21bai_2_Y_A2_sky130_fd_sc_hd__or3b_2_B -> sky130_fd_sc_hd__or3b_4
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 4 complete: WNS=-2.1028743785942776, TNS=-22.403459277406885
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 5
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -22.4030 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 34.2580, Delay: 0.6650, Fanout: 6, Drive: 1, Slack Contribution: 1.2786
+  2. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 34.1989, Delay: 0.6620, Fanout: 6, Drive: 1, Slack Contribution: 1.2175
+  3. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 34.1420, Delay: 0.6520, Fanout: 6, Drive: 1, Slack Contribution: 1.3081
+  4. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 34.1349, Delay: 0.6490, Fanout: 6, Drive: 1, Slack Contribution: 1.3563
+  5. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 33.7897, Delay: 0.7060, Fanout: 6, Drive: 2, Slack Contribution: 1.5345
+
+Deciding upsize for cell: count_instr[42]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 4
+  Encoding action: cell_idx=4, upsize_levels=3, action_idx=14
+ action space n_actions: 30
+  Selected action: 14
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    count_instr[42]_sky130_fd_sc_hd__and4_2_A: sky130_fd_sc_hd__and4_1 → sky130_fd_sc_hd__and4_2
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter5.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter5.txt
+  ✓ Resized count_instr[42]_sky130_fd_sc_hd__and4_2_A -> sky130_fd_sc_hd__and4_2
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 5 complete: WNS=-2.1028743785942776, TNS=-22.335641524074244
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 6
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -22.3350 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 34.1974, Delay: 0.6620, Fanout: 6, Drive: 1, Slack Contribution: 1.2143
+  2. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 34.1333, Delay: 0.6490, Fanout: 6, Drive: 1, Slack Contribution: 1.3528
+  3. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 33.8447, Delay: 0.6250, Fanout: 6, Drive: 1, Slack Contribution: 1.2507
+  4. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 33.7878, Delay: 0.7060, Fanout: 6, Drive: 2, Slack Contribution: 1.5305
+  5. irq_delay_sky130_fd_sc_hd__nor2_2_B_Y_sky130_fd_sc_hd__o211ai_2_B1_A2_sky130_fd_sc_hd__or4_2_X - Score: 33.5908, Delay: 1.7050, Fanout: 1, Drive: 2, Slack Contribution: 1.1373
+
+Deciding upsize for cell: count_instr[39]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 6
+  Encoding action: cell_idx=6, upsize_levels=3, action_idx=20
+ action space n_actions: 30
+  Selected action: 20
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    count_instr[39]_sky130_fd_sc_hd__and4_2_A: sky130_fd_sc_hd__and4_1 → sky130_fd_sc_hd__and4_2
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter6.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter6.txt
+  ✓ Resized count_instr[39]_sky130_fd_sc_hd__and4_2_A -> sky130_fd_sc_hd__and4_2
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 6 complete: WNS=-2.1028743785942776, TNS=-22.224402502931266
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 7
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -22.2250 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 34.1308, Delay: 0.6490, Fanout: 6, Drive: 1, Slack Contribution: 1.3476
+  2. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 33.8424, Delay: 0.6250, Fanout: 6, Drive: 1, Slack Contribution: 1.2458
+  3. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 33.7849, Delay: 0.7060, Fanout: 6, Drive: 2, Slack Contribution: 1.5245
+  4. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 33.3691, Delay: 0.6780, Fanout: 6, Drive: 2, Slack Contribution: 1.2388
+  5. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 33.1668, Delay: 0.6570, Fanout: 6, Drive: 2, Slack Contribution: 1.2550
+
+Deciding upsize for cell: count_instr[48]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 1
+  Encoding action: cell_idx=1, upsize_levels=3, action_idx=5
+ action space n_actions: 30
+  Selected action: 5
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    count_instr[48]_sky130_fd_sc_hd__and4_2_A: sky130_fd_sc_hd__and4_1 → sky130_fd_sc_hd__and4_2
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter7.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter7.txt
+  ✓ Resized count_instr[48]_sky130_fd_sc_hd__and4_2_A -> sky130_fd_sc_hd__and4_2
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 7 complete: WNS=-2.1028743785942776, TNS=-22.202611932966065
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 8
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -22.2010 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 33.8418, Delay: 0.6250, Fanout: 6, Drive: 1, Slack Contribution: 1.2446
+  2. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 33.4976, Delay: 0.6800, Fanout: 6, Drive: 2, Slack Contribution: 1.4670
+  3. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 33.3828, Delay: 0.6720, Fanout: 6, Drive: 2, Slack Contribution: 1.3939
+  4. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 33.3685, Delay: 0.6780, Fanout: 6, Drive: 2, Slack Contribution: 1.2376
+  5. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 33.1662, Delay: 0.6570, Fanout: 6, Drive: 2, Slack Contribution: 1.2538
+
+Deciding upsize for cell: count_instr[45]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 5
+  Encoding action: cell_idx=5, upsize_levels=3, action_idx=17
+ action space n_actions: 30
+  Selected action: 17
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    count_instr[45]_sky130_fd_sc_hd__and4_2_A: sky130_fd_sc_hd__and4_1 → sky130_fd_sc_hd__and4_2
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter8.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter8.txt
+  ✓ Resized count_instr[45]_sky130_fd_sc_hd__and4_2_A -> sky130_fd_sc_hd__and4_2
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 8 complete: WNS=-2.1028743785942776, TNS=-22.183603137890035
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 9
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -22.1820 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 33.4971, Delay: 0.6800, Fanout: 6, Drive: 2, Slack Contribution: 1.4660
+  2. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 33.3681, Delay: 0.6780, Fanout: 6, Drive: 2, Slack Contribution: 1.2368
+  3. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 33.1658, Delay: 0.6570, Fanout: 6, Drive: 2, Slack Contribution: 1.2530
+  4. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 33.1078, Delay: 0.6470, Fanout: 6, Drive: 2, Slack Contribution: 1.3412
+  5. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 33.0932, Delay: 0.6480, Fanout: 6, Drive: 2, Slack Contribution: 1.2896
+
+Deciding upsize for cell: count_instr[51]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 0
+  Encoding action: cell_idx=0, upsize_levels=3, action_idx=2
+ action space n_actions: 30
+  Selected action: 2
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    count_instr[51]_sky130_fd_sc_hd__and4_2_A: sky130_fd_sc_hd__and4_2 → sky130_fd_sc_hd__and4_4
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter9.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter9.txt
+  ✓ Resized count_instr[51]_sky130_fd_sc_hd__and4_2_A -> sky130_fd_sc_hd__and4_4
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 9 complete: WNS=-2.1028743785942776, TNS=-21.884690234999805
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 10
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -21.8840 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 33.3618, Delay: 0.6780, Fanout: 6, Drive: 2, Slack Contribution: 1.2235
+  2. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 33.1668, Delay: 0.6530, Fanout: 6, Drive: 2, Slack Contribution: 1.3391
+  3. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 33.1594, Delay: 0.6570, Fanout: 6, Drive: 2, Slack Contribution: 1.2395
+  4. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 33.0866, Delay: 0.6480, Fanout: 6, Drive: 2, Slack Contribution: 1.2757
+  5. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 31.2583, Delay: 0.6590, Fanout: 6, Drive: 4, Slack Contribution: 1.4055
+
+Deciding upsize for cell: count_instr[39]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 5
+  Encoding action: cell_idx=5, upsize_levels=3, action_idx=17
+ action space n_actions: 30
+  Selected action: 17
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    count_instr[39]_sky130_fd_sc_hd__and4_2_A: sky130_fd_sc_hd__and4_2 → sky130_fd_sc_hd__and4_4
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter10.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter10.txt
+  ✓ Resized count_instr[39]_sky130_fd_sc_hd__and4_2_A -> sky130_fd_sc_hd__and4_4
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 10 complete: WNS=-2.1028743785942776, TNS=-21.66841523097247
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 11
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -21.6670 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 33.1617, Delay: 0.6530, Fanout: 6, Drive: 2, Slack Contribution: 1.3285
+  2. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 33.0818, Delay: 0.6480, Fanout: 6, Drive: 2, Slack Contribution: 1.2656
+  3. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 32.9696, Delay: 0.6400, Fanout: 6, Drive: 2, Slack Contribution: 1.1979
+  4. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 31.2530, Delay: 0.6590, Fanout: 6, Drive: 4, Slack Contribution: 1.3943
+  5. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 31.1619, Delay: 0.6600, Fanout: 6, Drive: 4, Slack Contribution: 1.1816
+
+Deciding upsize for cell: count_instr[48]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 1
+  Encoding action: cell_idx=1, upsize_levels=3, action_idx=5
+ action space n_actions: 30
+  Selected action: 5
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    count_instr[48]_sky130_fd_sc_hd__and4_2_A: sky130_fd_sc_hd__and4_2 → sky130_fd_sc_hd__and4_4
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter11.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter11.txt
+  ✓ Resized count_instr[48]_sky130_fd_sc_hd__and4_2_A -> sky130_fd_sc_hd__and4_4
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 11 complete: WNS=-2.1028743785942776, TNS=-21.42465820950553
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 12
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -21.4240 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 33.1529, Delay: 0.6550, Fanout: 6, Drive: 2, Slack Contribution: 1.2678
+  2. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 32.9645, Delay: 0.6400, Fanout: 6, Drive: 2, Slack Contribution: 1.1871
+  3. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 31.1568, Delay: 0.6600, Fanout: 6, Drive: 4, Slack Contribution: 1.1710
+  4. genblk1.pcpi_mul.rd[27]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o211a_2_X_B1_sky130_fd_sc_hd__or3_2_X - Score: 31.1412, Delay: 0.9340, Fanout: 3, Drive: 1, Slack Contribution: 1.6850
+  5. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 31.0821, Delay: 0.6440, Fanout: 6, Drive: 4, Slack Contribution: 1.3504
+
+Deciding upsize for cell: count_instr[45]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 3
+  Encoding action: cell_idx=3, upsize_levels=3, action_idx=11
+ action space n_actions: 30
+  Selected action: 11
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    count_instr[45]_sky130_fd_sc_hd__and4_2_A: sky130_fd_sc_hd__and4_2 → sky130_fd_sc_hd__and4_4
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter12.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter12.txt
+  ✓ Resized count_instr[45]_sky130_fd_sc_hd__and4_2_A -> sky130_fd_sc_hd__and4_4
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 12 complete: WNS=-2.1028743785942776, TNS=-21.177575847941185
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 13
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -21.1760 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 33.0244, Delay: 0.6460, Fanout: 6, Drive: 2, Slack Contribution: 1.1870
+  2. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 31.1516, Delay: 0.6600, Fanout: 6, Drive: 4, Slack Contribution: 1.1600
+  3. genblk1.pcpi_mul.rd[27]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o211a_2_X_B1_sky130_fd_sc_hd__or3_2_X - Score: 31.1412, Delay: 0.9340, Fanout: 3, Drive: 1, Slack Contribution: 1.6850
+  4. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 31.0761, Delay: 0.6440, Fanout: 6, Drive: 4, Slack Contribution: 1.3377
+  5. count_instr[45]_sky130_fd_sc_hd__and4_2_A - Score: 30.9399, Delay: 0.6360, Fanout: 6, Drive: 4, Slack Contribution: 1.2195
+
+Deciding upsize for cell: count_instr[42]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 4
+  Encoding action: cell_idx=4, upsize_levels=3, action_idx=14
+ action space n_actions: 30
+  Selected action: 14
+
+[STEP 4] Decoding action to resize commands...
+  Generated 1 resize commands
+    count_instr[42]_sky130_fd_sc_hd__and4_2_A: sky130_fd_sc_hd__and4_2 → sky130_fd_sc_hd__and4_4
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter13.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter13.txt
+  ✓ Resized count_instr[42]_sky130_fd_sc_hd__and4_2_A -> sky130_fd_sc_hd__and4_4
+[INFO] Applied 1 resizes, skipped 0
+[INFO] Iteration 13 complete: WNS=-2.1028743785942776, TNS=-20.914234491765974
+[INFO] Available corner: nom_ff_n40C_1v95
+[INFO] Available corner: nom_ss_100C_1v60
+[INFO] Available corner: nom_tt_025C_1v80
+[INFO] Skipping corner nom_ff_n40C_1v95 (only nom_ss_100C_1v60 is enabled)
+Printing metrics for corner: nom_ss_100C_1v60
+Creating min.rpt
+Creating max.rpt
+Creating checks.rpt
+Creating slack_max.rpt
+Creating violators.rpt
+Creating parasitic_annotation.rpt
+[INFO] Skipping corner nom_tt_025C_1v80 (only nom_ss_100C_1v60 is enabled)
+[INFO] Running heuristic agent: /home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py
+======================================================================
+Heuristic Agent - Iteration 14
+Strategy: balanced
+======================================================================
+
+[STEP 1] Parsing timing report...
+  WNS: -2.1030 ns
+  TNS: -20.9130 ns
+
+[STEP 2] Identifying actionable cells...
+  Found 10 actionable cells
+
+[STEP 3] Selecting action using heuristic rules...
+
+Top scored cells:
+  1. count_instr[39]_sky130_fd_sc_hd__and4_2_A - Score: 31.2112, Delay: 0.6660, Fanout: 6, Drive: 4, Slack Contribution: 1.1591
+  2. genblk1.pcpi_mul.rd[27]_sky130_fd_sc_hd__dfxtp_2_Q_D_sky130_fd_sc_hd__xnor2_2_Y_A_sky130_fd_sc_hd__nor2_2_Y_B_sky130_fd_sc_hd__o211a_2_X_B1_sky130_fd_sc_hd__or3_2_X - Score: 31.1412, Delay: 0.9340, Fanout: 3, Drive: 1, Slack Contribution: 1.6850
+  3. count_instr[51]_sky130_fd_sc_hd__and4_2_A - Score: 31.0699, Delay: 0.6440, Fanout: 6, Drive: 4, Slack Contribution: 1.3246
+  4. count_instr[42]_sky130_fd_sc_hd__and4_2_A - Score: 30.8125, Delay: 0.6270, Fanout: 6, Drive: 4, Slack Contribution: 1.1408
+  5. count_instr[48]_sky130_fd_sc_hd__and4_2_A - Score: 30.7721, Delay: 0.6190, Fanout: 6, Drive: 4, Slack Contribution: 1.2242
+
+Deciding upsize for cell: count_instr[39]_sky130_fd_sc_hd__and4_2_A
+  Timing pressure: 0.2103
+  High delay: True
+  High fanout: True
+  Low drive: True
+  Cell idx: 6
+  Encoding action: cell_idx=6, upsize_levels=3, action_idx=20
+ action space n_actions: 30
+  Selected action: 20
+
+[STEP 4] Decoding action to resize commands...
+Invalid resize action for cell count_instr[39]_sky130_fd_sc_hd__and4_2_A: 
+  Cell type: sky130_fd_sc_hd__and4_4, current size: 4, requested action: UPSIZE
+  Generated 0 resize commands
+
+[STEP 5] Writing actions file...
+  Wrote to: /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter14.txt
+
+======================================================================
+Heuristic agent completed
+======================================================================
+[INFO] Applying DQN actions from /home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test//actions/actions_iter14.txt
+[INFO] Applied 0 resizes, skipped 0
+[INFO] Iteration 14 complete: WNS=-2.1028743785942776, TNS=-20.914234491765974
+[INFO] No more actions available - converged
+
+=========================================
+Cell Resizing Complete (heuristic)
+=========================================
+[INFO] Legalizing placement...
+Placement Analysis
+---------------------------------
+total displacement          4.1 u
+average displacement        0.0 u
+max displacement            0.9 u
+original HPWL          545902.7 u
+legalized HPWL         555181.2 u
+delta HPWL                    2 %
+
+[INFO] Generating final timing report...
+
+=========================================
+Final Results:
+  WNS: -2.1028743785942776 ns
+  TNS: -20.914234491765974 ns
+=========================================
+[INFO] Writing output database...
+Setting global connections for newly added cells…
+[INFO] Setting global connections...
+Updating metrics…
+Cell type report:                       Count       Area
+  Fill cell                               450    1689.12
+  Tap cell                               5334    6673.90
+  Antenna cell                            287     718.19
+  Buffer                                    8      30.03
+  Clock buffer                            240    3407.02
+  Timing Repair Buffer                   1682   10542.61
+  Inverter                                163     611.84
+  Clock inverter                          155    1869.29
+  Sequential cell                        1613   32606.27
+  Multi-Input combinational cell        11648   93044.24
+  Total                                 21580  151192.51
+Writing OpenROAD database to '/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18//74-dqn-resizer-test/picorv32a.odb'…
+Writing layout to '/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18//74-dqn-resizer-test/picorv32a.def'…
+[SUCCESS] Cell resizing flow complete!
+Agent used: heuristic
