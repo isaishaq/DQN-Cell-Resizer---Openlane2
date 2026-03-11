@@ -29,6 +29,8 @@ source $::env(SCRIPTS_DIR)/openroad/common/resizer.tcl
 #     set ::env(HEURISTIC_AGENT_SCRIPT) "/home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py"
 # }
 
+set ::env(HEURISTIC_AGENT_SCRIPT) "/home/isaishaq/openlane2/designs/picorv_test/scripts/heuristic_agent.py"
+
 # Agent selection: DQN if model exists, else heuristic
 if {[file exists $::env(DQN_AGENT_SCRIPT)]} {
     set ::env(ACTIVE_AGENT) "dqn"
@@ -166,7 +168,7 @@ for {set iter 1} {$iter <= $dqn_max_iters} {incr iter} {
     }
     
     # Break if no actions taken
-    # if {$num_resizes == 0} {
+    # if {$num_resizes == 0 && $::env(ACTIVE_AGENT) eq "heuristic"} {
     #     puts "\[INFO\] No more actions available - converged"
     #     break
     # }

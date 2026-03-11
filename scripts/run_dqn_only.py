@@ -45,8 +45,8 @@ os.makedirs(output_dir, exist_ok=True)
 # Print whats inside config
 print("\n=== Config Variables ===")# 2. Access specific config variables
 config = config.copy(
-    CLOCK_PERIOD=16,
-    DQN_AGENT_SCRIPT="/home/isaishaq/openlane2/designs/picorv_test/scripts/dqn_agent.py",
+    CLOCK_PERIOD=17,
+    # DQN_AGENT_SCRIPT="/home/isaishaq/openlane2/designs/picorv_test/scripts/dqn_agent.py",
     DQN_MODEL_PATH="/home/isaishaq/openlane2/designs/picorv_test/runs/RUN_2026-03-01_15-10-18/74-dqn-resizer-test/model/dqn_resizer.pth",
     )
 print(f"Clock period: {config['CLOCK_PERIOD']}")
@@ -71,5 +71,5 @@ state_out = dqn_step.start(step_dir=output_dir)
 # Save the new state
 #state_out = state_in.copy()
 #state_out.update(views_update, metrics_update)
-#state_out.save_snapshot(f"{output_dir}/state_out.json")
+# state_out.save_snapshot(f"{output_dir}/state_out.json")
 print(f"\nState saved to: {output_dir}/state_out.json")

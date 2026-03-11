@@ -87,6 +87,14 @@ class HeuristicAgent:
         
         # Sort by score (highest first)
         scores.sort(reverse=True, key=lambda x: x[0])
+
+        # Print top 5 scored cells for debugging
+        print("\nTop scored cells:")
+        for i, (score, cell) in enumerate(scores[:5]):
+            print(f"  {i+1}. {cell.instance_name} - Score: {score:.4f}, "
+                  f"Delay: {cell.delay:.4f}, Fanout: {cell.fanout}, "
+                  f"Drive: {cell.current_drive_strength}, "
+                  f"Slack Contribution: {cell.slack_contribution:.4f}")
         
         # Get top cell
         top_score, top_cell = scores[0]
@@ -139,7 +147,9 @@ class HeuristicAgent:
         Decide how many drive strength levels to increase.
         
         Returns:
-            1, 2, 3, or 4 (drive strength multiplier)
+            1 - downsize 1 level
+            2 - no change
+            3 - upsize 1 level
         """
         wns = timing_data['global_metrics']['wns']
         
@@ -147,13 +157,20 @@ class HeuristicAgent:
         timing_pressure = abs(wns) / 10.0  # Normalize by 10ns
         
         # Check cell characteristics
-        high_delay = cell.delay > 0.5
+        high_delay = cell.delay > 0.4
         high_fanout = cell.fanout > 5
-        low_drive = cell.current_drive_strength <= 2
+        low_drive = cell.current_drive_strength <= 4
+
+        # Print this cell's characteristics for debugging
+        print(f"\nDeciding upsize for cell: {cell.instance_name}")
+        print(f"  Timing pressure: {timing_pressure:.4f}")
+        print(f"  High delay: {high_delay}")
+        print(f"  High fanout: {high_fanout}")
+        print(f"  Low drive: {low_drive}")
         
         if self.strategy == 'aggressive':
             if timing_pressure > 0.5 and (high_delay or high_fanout):
-                return 4  # 4x drive
+                return 3  # 4x drive
             elif timing_pressure > 0.3:
                 return 2  # 2x drive
             else:
@@ -161,17 +178,17 @@ class HeuristicAgent:
         
         elif self.strategy == 'conservative':
             if high_delay and high_fanout and low_drive:
-                return 2
+                return 3
             else:
-                return 1
+                return 2
         
         else:  # balanced
             if high_delay and high_fanout:
-                return 2
+                return 3
             elif high_delay or high_fanout:
-                return 1
+                return 3
             else:
-                return 1
+                return 2
         
     def _encode_action(
         self,
@@ -188,7 +205,15 @@ class HeuristicAgent:
         """
         # Find cell index in actionable list
         try:
+            # Print cell idx for debugging
+            print(f"  Cell idx: {actionable_cells.index(cell)}")
             cell_idx = actionable_cells.index(cell)
+            # How to get the index of the cell in actionable_cells? We can use the instance name to find it
+            # cell_idx = next(i for i, c in enumerate(actionable_cells) if c.instance_name == cell.instance_name) --- IGNORE ---
+            # Print whole index mapping for debugging
+            # print("  Actionable cells:")
+            # for i, c in enumerate(actionable_cells):
+            #     print(f"    {i}: {c.instance_name} (drive: {c.current_drive_strength})")
         except ValueError:
             return 0  # Cell not found, return no-op
         
@@ -203,16 +228,23 @@ class HeuristicAgent:
         # Simple encoding: top-k cells (10) × 3 actions (upsize 1x, 2x, 4x)
         # = 30 actions
         if upsize_levels == 1:
+            # downsize
             size_action = 0
         elif upsize_levels == 2:
+            # no change
             size_action = 1
         else:  # 4
+            # upsize
             size_action = 2
         
         action_idx = cell_idx * 3 + size_action
         
         # Make sure it's within bounds
         action_idx = min(action_idx, action_space.n_actions - 1)
+
+        # Print action encoding for debugging
+        print(f"  Encoding action: cell_idx={cell_idx}, upsize_levels={upsize_levels}, action_idx={action_idx}")
+        print(f" action space n_actions: {action_space.n_actions}")
         
         return action_idx
 
@@ -313,8 +345,23 @@ def main():
     
     # Decode action
     print(f"\n[STEP 4] Decoding action to resize commands...")
-    resizes = action_space.apply_action(action_idx, actionable_cells)
+    resizes  = action_space.apply_action(action_idx, actionable_cells)
     print(f"  Generated {len(resizes)} resize commands")
+
+    # if no resizes, we repeat select action with the next action_idx, excluding the previous idx
+    while not resizes:
+        print(f"  No resizes generated for action_idx {action_idx}, trying next best action...")
+        # action_idx += 1
+        # Find the action idx from agent.select_action that corresponds to the next best cell
+        cell_idx = action_idx // 3  # Get the cell index from the action index
+        actionable_cells.remove(actionable_cells[cell_idx])  # Remove the cell that was just tried
+        action_idx = agent.select_action(actionable_cells, timing_data, action_space)
+        # Break if actionnable cells are exhausted
+        if not actionable_cells or action_idx >= action_space.n_actions:
+            print(f"  No more actions to try, exiting.")
+            break
+        resizes = action_space.apply_action(action_idx, actionable_cells)
+        print(f"  Generated {len(resizes)} resize commands for action_idx {action_idx}")
     
     if args.verbose and resizes:
         for inst, (old, new) in resizes.items():

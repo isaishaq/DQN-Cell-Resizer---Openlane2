@@ -582,6 +582,7 @@ def main():
         
         print(f"  Generated {len(resizes)} resize commands")
         
+
         if args.verbose and resizes:
             print(f"\n  Resize commands:")
             for instance, (old_cell, new_cell) in resizes.items():

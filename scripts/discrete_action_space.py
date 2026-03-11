@@ -84,7 +84,7 @@ class CellLibrary:
     
     def get_available_sizes(self, cell_base_type: str) -> List[int]:
         """Get available drive strengths for a cell type."""
-        return self.available_sizes.get(cell_base_type, [1, 2])
+        return self.available_sizes.get(cell_base_type, [1, 2, 4])
     
     def can_resize(self, cell_base_type: str, current_size: int, action: ResizeAction) -> bool:
         """Check if a resize action is valid."""
@@ -301,6 +301,11 @@ class DiscreteActionSpace:
             
             # Check if resize is valid
             if not self.library.can_resize(cell_base_type, old_size, resize_action):
+                print(f"Invalid resize action for cell {cell.instance_name}: ")
+                print(f"  Cell type: {cell.cell_type}, current size: {old_size}, "
+                      f"requested action: {resize_action.name}")
+                # Get next actionable cells instead
+
                 continue  # Skip invalid resize
             
             new_size = self.library.get_new_size(cell_base_type, old_size, resize_action)
